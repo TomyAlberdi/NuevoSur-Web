@@ -1,5 +1,12 @@
 $primary-black: #1e1e28;
 $primary-orange: #be382d;
 $secondary-gray: #555969;
-$secondary-purple: #575373;
-$text-white: #e8ede8;
+$text-light: #e8ede8;
+$text-dark: #333;
+
+@mixin flex-container($direction, $space, $items) {
+  display: flex;
+  align-items: $items;
+  flex-direction: $direction;
+  justify-content: $space;
+}
