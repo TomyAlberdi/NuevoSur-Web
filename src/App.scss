@@ -1,9 +1,14 @@
+@use "var";
+@use "@/Components/Navbar/navbar";
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-div.App {
+div.App div.Layout {
   border: 1px solid red;
+  min-height: 100vh;
+  background-color: var.$secondary-gray;
 }
