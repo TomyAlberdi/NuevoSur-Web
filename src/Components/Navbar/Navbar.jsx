@@ -1,9 +1,11 @@
-import React from 'react'
+import React from "react";
 
 const Navbar = () => {
   return (
-    <div className='Navbar'>Navbar</div>
-  )
-}
+    <div className="Navbar">
+      <img src="/NuevoSurIcon.png" />
+    </div>
+  );
+};
 
-export default Navbar
+export default Navbar;
