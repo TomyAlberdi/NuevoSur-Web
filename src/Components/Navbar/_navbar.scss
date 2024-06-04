@@ -1,9 +1,76 @@
 @use "var";
 
 div.Navbar {
-  border: 1px solid blue;
-  img {
-    width: 10vh;
-    height: 10vh;
+  @include var.flex-container(column, space-between, center);
+  background-color: var.$light-gray;
+  position: sticky;
+  width: 100%;
+  div.topNavbar {
+    max-height: 100px;
+    width: 100%;
+    padding: 0 15%;
+    height: 12.5vh;
+    @include var.flex-container(row, space-between, center);
+    section.presentation {
+      a {
+        @include var.flex-container(row, center, center);
+        text-decoration: none;
+        img {
+          width: 90px;
+          height: 90px;
+        }
+        h2 {
+          font-size: 2rem;
+          margin-left: 10px;
+          span {
+            &:nth-child(1) {
+              color: var.$primary-orange-light;
+            }
+          }
+        }
+      }
+    }
+    form.searchBar {
+      height: 100%;
+      @include var.flex-container(row, space-evenly, center);
+      width: 40%;
+      input,
+      button {
+        height: 6.25vh;
+        border-radius: 5px;
+        border: none;
+        box-shadow: var.$shadow-1;
+      }
+      input {
+        width: 80%;
+        padding: 2.5%;
+        font-size: 1.05rem;
+        &:focus {
+          outline: none;
+        }
+      }
+      button {
+        @include var.flex-container(row, center, center);
+        background-color: var.$primary-orange;
+        width: 6.25vh;
+        height: 6.25vh;
+        svg {
+          width: 70%;
+        }
+        transition: 0.3s all ease-in-out;
+        &:hover {
+          cursor: pointer;
+          transition: 0.3s all ease-in-out;
+          background-color: var.$primary-orange-light;
+        }
+      }
+    }
+  }
+  div.botNavbar {
+    background-color: var.$primary-black;
+    color: var.$text-light;
+    width: 100%;
+    height: 6vh;
+    max-height: 50px;
   }
 }
