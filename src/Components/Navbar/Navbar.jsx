@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import data from "@/Utils/catNavbar.json";
+import BotNavbarItem from "@/Components/Navbar/components/BotNavbarItem";
 
 const Navbar = () => {
   const handleSearch = (e) => {
@@ -48,7 +50,13 @@ const Navbar = () => {
           </button>
         </form>
       </div>
-      <div className="botNavbar"></div>
+      <div className="botNavbar">
+        {
+          data.map((item, index) => (
+            <BotNavbarItem data={item} key={index} />
+          ))
+        }
+      </div>
     </div>
   );
 };
