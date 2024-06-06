@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "name": "Tendenza Palladium",
+    "price": 26913.21,
+    "priceUnit": "M2",
+    "category": "PORCELANICOS",
+    "provider": "Cerámica Cañuelas",
+    "measures": "59X59",
+    "quality": "1ra",
+    "images": [
+      "https://s3-sa-east-1.amazonaws.com/lpc-fotos/foto-19979-1-31541.jpg",
+      "https://s3-sa-east-1.amazonaws.com/lpc-fotos/foto-19979-1-31541.jpg",
+      "https://s3-sa-east-1.amazonaws.com/lpc-fotos/foto-19979-1-31541.jpg"
+    ],
+    "code": "20022",
+    "salesUnit": "$36.871,10 x CAJA ( 1,37 M2 )",
+    "description": "Aspecto símil mármol. Tránsito medio. Brillo intenso. Espesor 10 mm.",
+    "discount": false
+  },
+  {
+    "id": 2,
+    "name": "Allpa Stage Gris",
+    "price": 8195.68,
+    "priceUnit": "M2",
+    "category": "CERAMICOS",
+    "provider": "Cerámica Albedi / Cerámica Paz",
+    "measures": "51X51",
+    "quality": "1ra",
+    "images": [
+      "https://s3-sa-east-1.amazonaws.com/lpc-fotos/foto-19867-1-31484.jpg",
+      "https://s3-sa-east-1.amazonaws.com/lpc-fotos/foto-19867-1-31484.jpg",
+      "https://s3-sa-east-1.amazonaws.com/lpc-fotos/foto-19867-1-31484.jpg"
+    ],
+    "code": "19965",
+    "salesUnit": "$15.342,30 x CAJA ( 2,08 M2 )",
+    "description": "Tránsito intenso. Junta mínima 4 mm. Ligera variación de tono. ",
+    "discount": {
+      "percentage": 10,
+      "newPrice": 7376.11
+    }
+  },
+  {
+    "id": 3,
+    "name": "Cortines Portland Steel",
+    "price": 9726.39,
+    "priceUnit": "M2",
+    "category": "CERAMICOS",
+    "provider": "Ceramica Cortines",
+    "measures": "60X60",
+    "quality": "1ra",
+    "images": [
+      "https://s3-sa-east-1.amazonaws.com/lpc-fotos/foto-20004-1-31555.jpg",
+      "https://s3-sa-east-1.amazonaws.com/lpc-fotos/foto-20004-1-31555.jpg",
+      "https://s3-sa-east-1.amazonaws.com/lpc-fotos/foto-20004-1-31555.jpg"
+    ],
+    "code": "20036",
+    "salesUnit": "$14.006,00 x CAJA ( 1,44 M2 )",
+    "description": "Tránsito intenso. Junta mínima 3 mm. Diseño atractivo.",
+    "discount": false
+  }
+]
