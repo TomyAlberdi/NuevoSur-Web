@@ -1,5 +1,51 @@
 @use "var";
 
 div.Product {
-  border: 1px solid red;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  min-height: 72.5vh;
+  padding: 0 10% 1%;
+  section {
+    border: 1px solid red;
+  }
+  .div1 {
+    grid-area: 1 / 3 / 2 / 5;
+  }
+  .div2 {
+    grid-area: 2 / 3 / 3 / 5;
+  }
+  .div3 {
+    grid-area: 3 / 3 / 4 / 5;
+  }
+  .div4 {
+    grid-area: 4 / 3 / 5 / 5;
+  }
+  .div5 {
+    grid-area: 1 / 1 / 5 / 3;
+  }
+  .div6 {
+    grid-area: 1 / 5 / 3 / 7;
+  }
+  .div7 {
+    grid-area: 3 / 5 / 5 / 7;
+  }
+  .div8 {
+    grid-area: 5 / 1 / 7 / 2;
+  }
+  .div9 {
+    grid-area: 5 / 2 / 7 / 3;
+  }
+  .div10 {
+    grid-area: 5 / 3 / 7 / 4;
+  }
+  .div11 {
+    grid-area: 5 / 4 / 7 / 5;
+  }
+  .div12 {
+    grid-area: 5 / 5 / 7 / 6;
+  }
+  .div13 {
+    grid-area: 5 / 6 / 7 / 7;
+  }
 }
