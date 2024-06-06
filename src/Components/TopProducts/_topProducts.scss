@@ -1,0 +1,12 @@
+@use "var";
+
+.TopProducts {
+  border: 1px solid red;
+  width: 80%;
+  @include var.flex-container(column, center, center);
+  padding: 1.5% 0;
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5%;
+  }
+}

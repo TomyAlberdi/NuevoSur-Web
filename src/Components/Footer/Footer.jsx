@@ -21,8 +21,7 @@ const Footer = () => {
       </section>
       <section className="botFooter">
         <p>
-          Copyright 2023 - Data Trainers LLC. All Rights Reserved. The
-          certification names are the trademarks of their respective owners
+          Copyright 2024 - Nuevo Sur SA. Todos los derechos reservados.
         </p>
         <p>NuevoSur@gmail.com</p>
       </section>

@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination } from "swiper/modules";
+import TopProducts from "@/Components/TopProducts/TopProducts";
+import Services from "@/Components/Services/Services";
 
 const Home = () => {
   return (
@@ -26,9 +28,11 @@ const Home = () => {
           </swiper-slide>
           <swiper-slide>
             <Link>Promo 4</Link>
-          </swiper-slide>      
+          </swiper-slide>
         </swiper-container>
       </section>
+      <Services />
+      <TopProducts />
     </div>
   );
 };
