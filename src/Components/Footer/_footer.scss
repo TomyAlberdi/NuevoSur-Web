@@ -1,5 +1,51 @@
 @use "var";
 
 footer.Footer {
-  border: 1px solid blue;
+  @include var.flex-container(column, space-between, center);
+  background-color: var.$light-gray;
+  section {
+    width: 100%;
+    &.topFooter {
+      @include var.flex-container(row, space-between, center);
+      padding: 1% 5%;
+      div {
+        @include var.flex-container(row, space-between, center);
+        gap: 10px;
+        span {
+          font-size: 1.5rem;
+          font-weight: 700;
+        }
+        &:nth-child(2) {
+          width: 100px;
+          gap: 0;
+        }
+        a {
+          background-color: var.$primary-orange;
+          @include var.flex-container(row, center, center);
+          padding: 5%;
+          border-radius: 5px;
+          box-shadow: var.$shadow-1;
+          svg {
+            path, circle {
+              color: var.$text-light;
+            }
+            font-size: 2rem;
+          }
+        }
+      }
+      img {
+        width: 75px;
+        height: 75px;
+      }
+    }
+    &.botFooter {
+      @include var.flex-container(row, space-between, center);
+      padding: 0% 5% 2%;
+      p {
+        &:nth-child(1) {
+          width: 30%;
+        }
+      }
+    }
+  }
 }

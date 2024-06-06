@@ -16,16 +16,16 @@ const Home = () => {
           loop={true}
         >
           <swiper-slide>
-            <Link>ey1</Link>
+            <Link>Promo 1</Link>
           </swiper-slide>
           <swiper-slide>
-            <Link>ey2</Link>
+            <Link>Promo 2</Link>
           </swiper-slide>
           <swiper-slide>
-            <Link>ey3</Link>
+            <Link>Promo 3</Link>
           </swiper-slide>
           <swiper-slide>
-            <Link>ey4</Link>
+            <Link>Promo 4</Link>
           </swiper-slide>      
         </swiper-container>
       </section>
