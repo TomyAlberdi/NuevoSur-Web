@@ -1,8 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "swiper/css";
-import "swiper/css/pagination";
-import { Pagination } from "swiper/modules";
 import TopProducts from "@/Components/TopProducts/TopProducts";
 import Services from "@/Components/Services/Services";
 
@@ -18,16 +16,32 @@ const Home = () => {
           loop={true}
         >
           <swiper-slide>
-            <Link>Promo 1</Link>
+            <Link
+              style={{
+                backgroundImage: `url(https://s3-sa-east-1.amazonaws.com/lpc-maxis/wp-content/uploads/2024/04/29125518/WhatsApp-Image-2024-05-22-at-12.33.25-PM.jpeg)`,
+              }}
+            ></Link>
           </swiper-slide>
           <swiper-slide>
-            <Link>Promo 2</Link>
+            <Link
+              style={{
+                backgroundImage: `url(https://s3-sa-east-1.amazonaws.com/lpc-maxis/wp-content/uploads/2024/04/29130220/WhatsApp-Image-2024-05-22-at-11.50.02-AM.jpeg`,
+              }}
+            ></Link>
           </swiper-slide>
           <swiper-slide>
-            <Link>Promo 3</Link>
+            <Link
+              style={{
+                backgroundImage: `url(https://s3-sa-east-1.amazonaws.com/lpc-maxis/wp-content/uploads/2024/04/29125801/WhatsApp-Image-2024-05-22-at-11.48.51-AM.jpeg`,
+              }}
+            ></Link>
           </swiper-slide>
           <swiper-slide>
-            <Link>Promo 4</Link>
+            <Link
+              style={{
+                backgroundImage: `url(https://s3-sa-east-1.amazonaws.com/lpc-maxis/wp-content/uploads/2024/01/03135348/Banner-FEBRERO_Desktop-Santander-3-cuotas.png`,
+              }}
+            ></Link>
           </swiper-slide>
         </swiper-container>
       </section>
