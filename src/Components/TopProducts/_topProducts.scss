@@ -11,7 +11,11 @@
   section.productList {
     width: 100%;
     @include var.flex-container(row, center, center);
-    gap: 2.5%;
     flex-wrap: wrap;
+    height: unset;
+    column-gap: 1.5%;
+    article {
+      margin-bottom: 1.5%;
+    }
   }
 }
