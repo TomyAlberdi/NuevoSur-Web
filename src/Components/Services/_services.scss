@@ -22,7 +22,7 @@ div.Services {
       &:hover {
         cursor: pointer;
         transition: 0.3s all ease-in-out;
-        opacity: 0.8;
+        opacity: 0.9;
       }
       span {
         @include var.flex-container(row, center, center);
@@ -30,6 +30,12 @@ div.Services {
         padding: 3%;
         border-radius: 100px;
       }
+    }
+    transition: 0.3s all ease-in-out;
+    &:hover {
+      cursor: pointer;
+      transition: 0.3s all ease-in-out;
+      transform: scale(1.05);
     }
   }
 }
