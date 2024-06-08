@@ -32,6 +32,11 @@ const Product = () => {
       </section>
 
       <section className="div2 info portion">
+        {Product?.discount ? (
+          <div className="discount">
+            <span>- {Product?.discount.percentage}%</span>
+          </div>
+        ) : null}
         <section className="mainInfo">
           <span className="category">{Product?.category}</span>
           <span className="name">{Product?.name}</span>
@@ -39,13 +44,27 @@ const Product = () => {
           <span className="description">{Product?.description}</span>
         </section>
         <section className="prices">
-          <span className="price">
-            {new Intl.NumberFormat("es-AR", {
-              style: "currency",
-              currency: "ARS",
-            }).format(Product?.price)}{" "}
-            X {Product?.priceUnit}
-          </span>
+          {Product?.discount ? (
+            <>
+              <span className="oldPrice">
+                {new Intl.NumberFormat("es-AR", {
+                  style: "currency",
+                  currency: "ARS",
+                }).format(Product?.price)}{" "}
+              </span>
+              <span className="price">
+                {Product?.discount.newPrice} X {Product?.priceUnit}
+              </span>
+            </>
+          ) : (
+            <span className="price">
+              {new Intl.NumberFormat("es-AR", {
+                style: "currency",
+                currency: "ARS",
+              }).format(Product?.price)}{" "}
+              X {Product?.priceUnit}
+            </span>
+          )}
           <span className="salesUnit">
             <span>Unidad de venta:</span>
             {Product?.salesUnit}

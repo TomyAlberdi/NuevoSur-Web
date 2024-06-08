@@ -30,6 +30,23 @@ div.Product {
     }
     &.info {
       @include var.flex-container(column, unset, flex-start);
+      position: relative;
+      div.discount {
+        @include var.flex-container(column, center, center);
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100px;
+        height: 50px;
+        background-color: var.$discount-red;
+        padding: 1%;
+        border-radius: 0 5px 0 5px;
+        span {
+          color: white;
+          font-size: 1.5rem;
+          font-weight: 600;
+        }
+      }
       section {
         width: 100%;
         &.mainInfo {
@@ -68,10 +85,17 @@ div.Product {
             border-radius: 5px;
             box-shadow: var.$shadow-1;
           }
+          span.oldPrice {
+            color: var.$primary-black;
+            text-decoration: line-through;
+            font-size: 1.5rem;
+            margin-right: 1%;
+            font-weight: 600;
+          }
           span.salesUnit {
             @include var.flex-container(column, flex-start, flex-start);
             color: var.$secondary-gray;
-            font-size: 1.25rem
+            font-size: 1.25rem;
           }
         }
         &.extraInfo {
@@ -130,6 +154,10 @@ div.Product {
       }
     }
   }
-  .div1 { grid-area: 1 / 1 / 5 / 2; }
-  .div2 { grid-area: 1 / 2 / 5 / 4; } 
+  .div1 {
+    grid-area: 1 / 1 / 5 / 2;
+  }
+  .div2 {
+    grid-area: 1 / 2 / 5 / 4;
+  }
 }
