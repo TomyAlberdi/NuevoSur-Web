@@ -34,7 +34,7 @@ const Product = () => {
       <section className="div2 info portion">
         {Product?.discount ? (
           <div className="discount">
-            <span>- {Product?.discount.percentage}%</span>
+            <span>- {Product?.discount.percentage} %</span>
           </div>
         ) : null}
         <section className="mainInfo">

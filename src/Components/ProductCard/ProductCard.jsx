@@ -8,10 +8,11 @@ const ProductCard = ({ data }) => {
       {
         data.discount && (
           <section className="discountFlag">
-            - %
+            -
             {
               data.discount?.percentage
             }
+            %
           </section>
         )
       }
