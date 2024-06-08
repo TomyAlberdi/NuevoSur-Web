@@ -14,32 +14,7 @@ const Product = () => {
 
   return (
     <div className="Product">
-      <section className="div1 mainInfo">
-        <div className="portion">
-          <span className="category">{Product?.category}</span>
-          <span className="name">{Product?.name}</span>
-          <span className="provider">{Product?.provider}</span>
-          <span className="description">{Product?.description}</span>
-        </div>
-        <div className="extraInfo portion">
-          <section className="measures">
-            <span className="title">Medidas:</span>
-            <span className="data">{Product?.measures}</span>
-          </section>
-          <section className="quality_code">
-            <div className="quality">
-              <span className="title">Calidad:</span>
-              <span className="data">{Product?.quality}</span>
-            </div>
-            <div className="code">
-              <span className="title">Código:</span>
-              <span className="data">{Product?.code}</span>
-            </div>
-          </section>
-        </div>
-      </section>
-
-      <section className="div2 carousel portion">
+      <section className="div1 carousel portion">
         <swiper-container
           slidesPerView={1}
           autoplay={true}
@@ -54,21 +29,42 @@ const Product = () => {
         </swiper-container>
       </section>
 
-      <section className="div4 prices portion">
-        <span className="price">
-          {new Intl.NumberFormat("es-AR", {
-            style: "currency",
-            currency: "ARS",
-          }).format(Product?.price)}{" "}
-          X {Product?.priceUnit}
-        </span>
-        <span className="salesUnit">
-          <span>Unidad de venta:</span>
-          {Product?.salesUnit}
-        </span>
+      <section className="div2 info portion">
+        <section className="mainInfo">
+          <span className="category">{Product?.category}</span>
+          <span className="name">{Product?.name}</span>
+          <span className="provider">{Product?.provider}</span>
+          <span className="description">{Product?.description}</span>
+        </section>
+        <section className="prices">
+          <span className="price">
+            {new Intl.NumberFormat("es-AR", {
+              style: "currency",
+              currency: "ARS",
+            }).format(Product?.price)}{" "}
+            X {Product?.priceUnit}
+          </span>
+          <span className="salesUnit">
+            <span>Unidad de venta:</span>
+            {Product?.salesUnit}
+          </span>
+        </section>
+        <section className="extraInfo">
+          <div className="measures">
+            <span className="title">Medidas:</span>
+            <span className="data">{Product?.measures}</span>
+          </div>
+          <div className="quality">
+            <span className="title">Calidad:</span>
+            <span className="data">{Product?.quality}</span>
+          </div>
+          <div className="code">
+            <span className="title">Código de producto:</span>
+            <span className="data">{Product?.code}</span>
+          </div>
+        </section>
+        <section className="actions">actions</section>
       </section>
-
-      <section className="div5 actions portion">actions</section>
     </div>
   );
 };

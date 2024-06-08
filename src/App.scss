@@ -32,6 +32,7 @@ div.App {
       section.productHeader {
         height: 9vh;
         padding: 1% 10%;
+        background-color: var.$light-gray;
         button {
           @include var.flex-container(row, center, center);
           height: 100%;
