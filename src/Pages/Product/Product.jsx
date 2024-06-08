@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import "swiper/css";
 import data from "@/Utils/productList.json";
+import { FaPhone } from "react-icons/fa";
+import { GoDownload } from "react-icons/go";
 
 const Product = () => {
   const { id } = useParams();
@@ -63,7 +65,16 @@ const Product = () => {
             <span className="data">{Product?.code}</span>
           </div>
         </section>
-        <section className="actions">actions</section>
+        <section className="actions">
+          <div>
+            <FaPhone />
+            <span>Contacto</span>
+          </div>
+          <div>
+            <GoDownload />
+            <span>Descargar detalle</span>
+          </div>
+        </section>
       </section>
     </div>
   );

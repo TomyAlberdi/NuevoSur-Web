@@ -75,32 +75,57 @@ div.Product {
           }
         }
         &.extraInfo {
-          @include var.flex-container(row, flex-start, flex-start);
+          @include var.flex-container(column, flex-start, flex-start);
           div {
-            @include var.flex-container(column, space-evenly, center);
-            height: 100px;
-            width: 100px;
-            margin-right: 2.5%;
-            background-color: var.$primary-black;
-            border-radius: 5px;
-            box-shadow: var.$shadow-1;
+            width: 100%;
             span {
-              @include var.flex-container(row, center, center);
-              color: var.$text-light;
-              padding: 2.5%;
               &.title {
-                text-align: center;
+                font-size: 1.25rem;
+                &::before {
+                  content: "•";
+                  margin-right: 0.5rem;
+                }
+                margin-right: 0.5rem;
               }
               &.data {
                 font-size: 1.5rem;
+                color: var.$primary-orange;
               }
             }
           }
         }
         &.actions {
-          border: 1px solid blue;
-          min-height: 16vh;
+          @include var.flex-container(row, flex-start, flex-start);
           padding-top: 2.5%;
+          div {
+            @include var.flex-container(column, center, center);
+            height: 110px;
+            width: 110px;
+            margin-right: 2.5%;
+            background-color: var.$primary-black;
+            border-radius: 5px;
+            box-shadow: var.$shadow-1;
+            svg {
+              margin-bottom: 5%;
+              height: 40%;
+              width: 40%;
+              path {
+                fill: var.$text-light;
+              }
+            }
+            span {
+              @include var.flex-container(column, center, center);
+              height: 30%;
+              color: var.$text-light;
+              text-align: center;
+            }
+            transition: 0.3s ease all;
+            &:hover {
+              cursor: pointer;
+              transition: 0.3s ease all;
+              opacity: 0.9;
+            }
+          }
         }
       }
     }
