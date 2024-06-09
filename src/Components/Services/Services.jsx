@@ -15,7 +15,7 @@ const Services = () => {
         </a>
       </article>
       <article>
-        <a href="">
+        <a href="/list">
           <span>
             <MdLocalGroceryStore />
           </span>

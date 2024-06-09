@@ -3,6 +3,7 @@ import Layout from "@/Layout/Layout";
 import LayoutProduct from "@/Layout/LayoutProduct";
 import Home from '@/Pages/Home/Home';
 import Product from '@/Pages/Product/Product';
+import ProductList from "@/Pages/ProductList/ProductList";
 
 const CustomRouter = () => {
   return useRoutes([
@@ -35,6 +36,14 @@ const CustomRouter = () => {
           ]
         }
       ]
+    },
+    {
+      path: "/list",
+      element: <Layout />,
+      children: [{
+        index: true,
+        element: <ProductList />
+      }]
     }
   ]);
 };

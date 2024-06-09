@@ -1,0 +1,6 @@
+@use "var";
+
+div.productList {
+  @include var.flex-container(row, space-between, flex-start);
+  padding: 1.5% 10%;
+}
