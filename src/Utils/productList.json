@@ -34,7 +34,7 @@
     ],
     "code": "19965",
     "salesUnit": "$ 15.342,30 x CAJA ( 2,08 M2 )",
-    "description": "Tránsito intenso. Junta mínima 4 mm. Ligera variación de tono. ",
+    "description": "Tránsito intenso. Junta mínima 4 mm. Ligera variación de tono.",
     "discount": {
       "percentage": 10,
       "newPrice": 7376.11
@@ -61,182 +61,583 @@
   },
   {
     "id": 4,
-    "name": "Tendenza Palladium",
-    "price": 26913.21,
+    "name": "Zenith Blanco",
+    "price": 10500.50,
     "priceUnit": "M2",
     "category": "PORCELANICOS",
-    "provider": "Cerámica Cañuelas",
-    "measures": "59X59",
+    "provider": "Cerámica Zenith",
+    "measures": "60X120",
     "quality": "1ra",
     "images": [
-      "https://s3-sa-east-1.amazonaws.com/lpc-fotos/foto-19979-1-31541.jpg",
-      "https://s3-sa-east-1.amazonaws.com/lpc-fotos/foto-19979-1-31541.jpg",
-      "https://s3-sa-east-1.amazonaws.com/lpc-fotos/foto-19979-1-31541.jpg"
+      "https://example.com/image4_1.jpg",
+      "https://example.com/image4_2.jpg",
+      "https://example.com/image4_3.jpg"
     ],
-    "code": "20022",
-    "salesUnit": "$ 36.871,10 x CAJA ( 1,37 M2 )",
-    "description": "Aspecto símil mármol. Tránsito medio. Brillo intenso. Espesor 10 mm.",
-    "discount": false
-  },
-  {
-    "id": 5,
-    "name": "Allpa Stage Gris",
-    "price": 8195.68,
-    "priceUnit": "M2",
-    "category": "CERAMICOS",
-    "provider": "Cerámica Albedi / Cerámica Paz",
-    "measures": "51X51",
-    "quality": "1ra",
-    "images": [
-      "https://s3-sa-east-1.amazonaws.com/lpc-fotos/foto-19867-1-31484.jpg",
-      "https://s3-sa-east-1.amazonaws.com/lpc-fotos/foto-19867-1-31484.jpg",
-      "https://s3-sa-east-1.amazonaws.com/lpc-fotos/foto-19867-1-31484.jpg"
-    ],
-    "code": "19965",
-    "salesUnit": "$ 15.342,30 x CAJA ( 2,08 M2 )",
-    "description": "Tránsito intenso. Junta mínima 4 mm. Ligera variación de tono. ",
+    "code": "30045",
+    "salesUnit": "$ 25.200,00 x CAJA ( 2,40 M2 )",
+    "description": "Aspecto símil piedra. Tránsito intenso. Mate. Espesor 9 mm.",
     "discount": {
-      "percentage": 10,
-      "newPrice": 7376.11
+      "percentage": 5,
+      "newPrice": 9975.48
     }
   },
   {
-    "id": 6,
-    "name": "Cortines Portland Steel",
-    "price": 9726.39,
+    "id": 5,
+    "name": "Elegance Nero",
+    "price": 8900.00,
     "priceUnit": "M2",
     "category": "CERAMICOS",
-    "provider": "Ceramica Cortines",
-    "measures": "60X60",
+    "provider": "Elegance Ceramics",
+    "measures": "45X45",
+    "quality": "2da",
+    "images": [
+      "https://example.com/image5_1.jpg",
+      "https://example.com/image5_2.jpg",
+      "https://example.com/image5_3.jpg"
+    ],
+    "code": "40012",
+    "salesUnit": "$ 18.000,00 x CAJA ( 2,00 M2 )",
+    "description": "Tránsito moderado. Junta mínima 5 mm. Variación de tono media.",
+    "discount": false
+  },
+  {
+    "id": 6,
+    "name": "Classico Beige",
+    "price": 7600.75,
+    "priceUnit": "M2",
+    "category": "CERAMICOS",
+    "provider": "Classico Ceramics",
+    "measures": "30X60",
     "quality": "1ra",
     "images": [
-      "https://s3-sa-east-1.amazonaws.com/lpc-fotos/foto-20004-1-31555.jpg",
-      "https://s3-sa-east-1.amazonaws.com/lpc-fotos/foto-20004-1-31555.jpg",
-      "https://s3-sa-east-1.amazonaws.com/lpc-fotos/foto-20004-1-31555.jpg"
+      "https://example.com/image6_1.jpg",
+      "https://example.com/image6_2.jpg",
+      "https://example.com/image6_3.jpg"
     ],
-    "code": "20036",
-    "salesUnit": "$ 14.006,00 x CAJA ( 1,44 M2 )",
-    "description": "Tránsito intenso. Junta mínima 3 mm. Diseño atractivo.",
+    "code": "50023",
+    "salesUnit": "$ 15.201,50 x CAJA ( 2,00 M2 )",
+    "description": "Tránsito ligero. Junta mínima 3 mm. Superficie mate.",
     "discount": false
   },
   {
     "id": 7,
-    "name": "Tendenza Palladium",
-    "price": 26913.21,
+    "name": "Urban Grey",
+    "price": 9500.00,
     "priceUnit": "M2",
     "category": "PORCELANICOS",
-    "provider": "Cerámica Cañuelas",
-    "measures": "59X59",
+    "provider": "Urban Ceramics",
+    "measures": "60X60",
     "quality": "1ra",
     "images": [
-      "https://s3-sa-east-1.amazonaws.com/lpc-fotos/foto-19979-1-31541.jpg",
-      "https://s3-sa-east-1.amazonaws.com/lpc-fotos/foto-19979-1-31541.jpg",
-      "https://s3-sa-east-1.amazonaws.com/lpc-fotos/foto-19979-1-31541.jpg"
+      "https://example.com/image7_1.jpg",
+      "https://example.com/image7_2.jpg",
+      "https://example.com/image7_3.jpg"
     ],
-    "code": "20022",
-    "salesUnit": "$ 36.871,10 x CAJA ( 1,37 M2 )",
-    "description": "Aspecto símil mármol. Tránsito medio. Brillo intenso. Espesor 10 mm.",
+    "code": "60078",
+    "salesUnit": "$ 19.000,00 x CAJA ( 2,00 M2 )",
+    "description": "Aspecto símil cemento. Tránsito intenso. Superficie semi-brillo.",
     "discount": false
   },
   {
     "id": 8,
-    "name": "Allpa Stage Gris",
-    "price": 8195.68,
+    "name": "Rustic Terra",
+    "price": 8300.40,
     "priceUnit": "M2",
     "category": "CERAMICOS",
-    "provider": "Cerámica Albedi / Cerámica Paz",
-    "measures": "51X51",
-    "quality": "1ra",
+    "provider": "Rustic Ceramics",
+    "measures": "45X90",
+    "quality": "2da",
     "images": [
-      "https://s3-sa-east-1.amazonaws.com/lpc-fotos/foto-19867-1-31484.jpg",
-      "https://s3-sa-east-1.amazonaws.com/lpc-fotos/foto-19867-1-31484.jpg",
-      "https://s3-sa-east-1.amazonaws.com/lpc-fotos/foto-19867-1-31484.jpg"
+      "https://example.com/image8_1.jpg",
+      "https://example.com/image8_2.jpg",
+      "https://example.com/image8_3.jpg"
     ],
-    "code": "19965",
-    "salesUnit": "$ 15.342,30 x CAJA ( 2,08 M2 )",
-    "description": "Tránsito intenso. Junta mínima 4 mm. Ligera variación de tono. ",
+    "code": "70056",
+    "salesUnit": "$ 16.601,60 x CAJA ( 2,00 M2 )",
+    "description": "Tránsito moderado. Junta mínima 4 mm. Variación de tono alta.",
     "discount": {
-      "percentage": 10,
-      "newPrice": 7376.11
+      "percentage": 7,
+      "newPrice": 7719.37
     }
   },
   {
     "id": 9,
-    "name": "Cortines Portland Steel",
-    "price": 9726.39,
+    "name": "Nature Blanco",
+    "price": 7000.20,
     "priceUnit": "M2",
     "category": "CERAMICOS",
-    "provider": "Ceramica Cortines",
-    "measures": "60X60",
+    "provider": "Nature Ceramics",
+    "measures": "33X33",
     "quality": "1ra",
     "images": [
-      "https://s3-sa-east-1.amazonaws.com/lpc-fotos/foto-20004-1-31555.jpg",
-      "https://s3-sa-east-1.amazonaws.com/lpc-fotos/foto-20004-1-31555.jpg",
-      "https://s3-sa-east-1.amazonaws.com/lpc-fotos/foto-20004-1-31555.jpg"
+      "https://example.com/image9_1.jpg",
+      "https://example.com/image9_2.jpg",
+      "https://example.com/image9_3.jpg"
     ],
-    "code": "20036",
-    "salesUnit": "$ 14.006,00 x CAJA ( 1,44 M2 )",
-    "description": "Tránsito intenso. Junta mínima 3 mm. Diseño atractivo.",
+    "code": "80034",
+    "salesUnit": "$ 14.000,40 x CAJA ( 2,00 M2 )",
+    "description": "Tránsito ligero. Junta mínima 2 mm. Superficie brillante.",
     "discount": false
   },
   {
     "id": 10,
-    "name": "Tendenza Palladium",
-    "price": 26913.21,
+    "name": "Vintage Azul",
+    "price": 9800.00,
+    "priceUnit": "M2",
+    "category": "PORCELANICOS",
+    "provider": "Vintage Tiles",
+    "measures": "20X20",
+    "quality": "1ra",
+    "images": [
+      "https://example.com/image10_1.jpg",
+      "https://example.com/image10_2.jpg",
+      "https://example.com/image10_3.jpg"
+    ],
+    "code": "90021",
+    "salesUnit": "$ 19.600,00 x CAJA ( 2,00 M2 )",
+    "description": "Aspecto vintage. Tránsito moderado. Superficie mate.",
+    "discount": {
+      "percentage": 12,
+      "newPrice": 8624.00
+    }
+  },
+  {
+    "id": 11,
+    "name": "Marble Effect White",
+    "price": 13500.75,
+    "priceUnit": "M2",
+    "category": "PORCELANICOS",
+    "provider": "Marble Art Ceramics",
+    "measures": "60X120",
+    "quality": "1ra",
+    "images": [
+      "https://example.com/image11_1.jpg",
+      "https://example.com/image11_2.jpg",
+      "https://example.com/image11_3.jpg"
+    ],
+    "code": "100034",
+    "salesUnit": "$ 27.001,50 x CAJA ( 2,00 M2 )",
+    "description": "Aspecto mármol. Tránsito intenso. Superficie brillante.",
+    "discount": false
+  },
+  {
+    "id": 12,
+    "name": "Wooden Touch Brown",
+    "price": 11200.65,
+    "priceUnit": "M2",
+    "category": "PORCELANICOS",
+    "provider": "Wooden Ceramics",
+    "measures": "15X90",
+    "quality": "1ra",
+    "images": [
+      "https://example.com/image12_1.jpg",
+      "https://example.com/image12_2.jpg",
+      "https://example.com/image12_3.jpg"
+    ],
+    "code": "110056",
+    "salesUnit": "$ 22.401,30 x CAJA ( 2,00 M2 )",
+    "description": "Aspecto madera. Tránsito moderado. Superficie mate.",
+    "discount": {
+      "percentage": 8,
+      "newPrice": 10304.60
+    }
+  },
+  {
+    "id": 13,
+    "name": "Modern Black",
+    "price": 12000.50,
+    "priceUnit": "M2",
+    "category": "PORCELANICOS",
+    "provider": "Modern Ceramics",
+    "measures": "60X60",
+    "quality": "1ra",
+    "images": [
+      "https://example.com/image13_1.jpg",
+      "https://example.com/image13_2.jpg",
+      "https://example.com/image13_3.jpg"
+    ],
+    "code": "120078",
+    "salesUnit": "$ 24.001,00 x CAJA ( 2,00 M2 )",
+    "description": "Aspecto moderno. Tránsito intenso. Superficie semi-brillo.",
+    "discount": false
+  },
+  {
+    "id": 14,
+    "name": "Classic Grey",
+    "price": 9300.75,
+    "priceUnit": "M2",
+    "category": "CERAMICOS",
+    "provider": "Classic Ceramics",
+    "measures": "45X90",
+    "quality": "2da",
+    "images": [
+      "https://example.com/image14_1.jpg",
+      "https://example.com/image14_2.jpg",
+      "https://example.com/image14_3.jpg"
+    ],
+    "code": "130034",
+    "salesUnit": "$ 18.601,50 x CAJA ( 2,00 M2 )",
+    "description": "Tránsito moderado. Junta mínima 5 mm. Variación de tono media.",
+    "discount": false
+  },
+  {
+    "id": 15,
+    "name": "Artistic Blue",
+    "price": 12500.85,
+    "priceUnit": "M2",
+    "category": "PORCELANICOS",
+    "provider": "Art Ceramics",
+    "measures": "30X30",
+    "quality": "1ra",
+    "images": [
+      "https://example.com/image15_1.jpg",
+      "https://example.com/image15_2.jpg",
+      "https://example.com/image15_3.jpg"
+    ],
+    "code": "140023",
+    "salesUnit": "$ 25.001,70 x CAJA ( 2,00 M2 )",
+    "description": "Aspecto artístico. Tránsito ligero. Superficie brillante.",
+    "discount": {
+      "percentage": 10,
+      "newPrice": 11250.77
+    }
+  },
+  {
+    "id": 16,
+    "name": "Nature Green",
+    "price": 14000.60,
+    "priceUnit": "M2",
+    "category": "PORCELANICOS",
+    "provider": "Nature Ceramics",
+    "measures": "60X120",
+    "quality": "1ra",
+    "images": [
+      "https://example.com/image16_1.jpg",
+      "https://example.com/image16_2.jpg",
+      "https://example.com/image16_3.jpg"
+    ],
+    "code": "150056",
+    "salesUnit": "$ 28.001,20 x CAJA ( 2,00 M2 )",
+    "description": "Aspecto natural. Tránsito intenso. Superficie mate.",
+    "discount": false
+  },
+  {
+    "id": 17,
+    "name": "Rustic Red",
+    "price": 10000.40,
+    "priceUnit": "M2",
+    "category": "CERAMICOS",
+    "provider": "Rustic Ceramics",
+    "measures": "45X90",
+    "quality": "2da",
+    "images": [
+      "https://example.com/image17_1.jpg",
+      "https://example.com/image17_2.jpg",
+      "https://example.com/image17_3.jpg"
+    ],
+    "code": "160034",
+    "salesUnit": "$ 20.000,80 x CAJA ( 2,00 M2 )",
+    "description": "Tránsito moderado. Junta mínima 4 mm. Variación de tono alta.",
+    "discount": false
+  },
+  {
+    "id": 18,
+    "name": "Elegance White",
+    "price": 9500.25,
+    "priceUnit": "M2",
+    "category": "CERAMICOS",
+    "provider": "Elegance Ceramics",
+    "measures": "45X45",
+    "quality": "2da",
+    "images": [
+      "https://example.com/image18_1.jpg",
+      "https://example.com/image18_2.jpg",
+      "https://example.com/image18_3.jpg"
+    ],
+    "code": "170056",
+    "salesUnit": "$ 19.000,50 x CAJA ( 2,00 M2 )",
+    "description": "Tránsito moderado. Junta mínima 5 mm. Variación de tono media.",
+    "discount": false
+  },
+  {
+    "id": 19,
+    "name": "Urban White",
+    "price": 10500.00,
+    "priceUnit": "M2",
+    "category": "PORCELANICOS",
+    "provider": "Urban Ceramics",
+    "measures": "60X60",
+    "quality": "1ra",
+    "images": [
+      "https://example.com/image19_1.jpg",
+      "https://example.com/image19_2.jpg",
+      "https://example.com/image19_3.jpg"
+    ],
+    "code": "180078",
+    "salesUnit": "$ 21.000,00 x CAJA ( 2,00 M2 )",
+    "description": "Aspecto símil cemento. Tránsito intenso. Superficie semi-brillo.",
+    "discount": false
+  },
+  {
+    "id": 20,
+    "name": "Classic Beige",
+    "price": 8200.75,
+    "priceUnit": "M2",
+    "category": "CERAMICOS",
+    "provider": "Classic Ceramics",
+    "measures": "30X60",
+    "quality": "1ra",
+    "images": [
+      "https://example.com/image20_1.jpg",
+      "https://example.com/image20_2.jpg",
+      "https://example.com/image20_3.jpg"
+    ],
+    "code": "190023",
+    "salesUnit": "$ 16.401,50 x CAJA ( 2,00 M2 )",
+    "description": "Tránsito ligero. Junta mínima 3 mm. Superficie mate.",
+    "discount": false
+  },
+  {
+    "id": 21,
+    "name": "Tendenza Nero",
+    "price": 15000.00,
     "priceUnit": "M2",
     "category": "PORCELANICOS",
     "provider": "Cerámica Cañuelas",
     "measures": "59X59",
     "quality": "1ra",
     "images": [
-      "https://s3-sa-east-1.amazonaws.com/lpc-fotos/foto-19979-1-31541.jpg",
-      "https://s3-sa-east-1.amazonaws.com/lpc-fotos/foto-19979-1-31541.jpg",
-      "https://s3-sa-east-1.amazonaws.com/lpc-fotos/foto-19979-1-31541.jpg"
+      "https://example.com/image21_1.jpg",
+      "https://example.com/image21_2.jpg",
+      "https://example.com/image21_3.jpg"
     ],
-    "code": "20022",
-    "salesUnit": "$ 36.871,10 x CAJA ( 1,37 M2 )",
+    "code": "20045",
+    "salesUnit": "$ 30.000,00 x CAJA ( 2,00 M2 )",
     "description": "Aspecto símil mármol. Tránsito medio. Brillo intenso. Espesor 10 mm.",
     "discount": false
   },
   {
-    "id": 11,
-    "name": "Allpa Stage Gris",
-    "price": 8195.68,
+    "id": 22,
+    "name": "Allpa Stage Blanco",
+    "price": 7900.00,
     "priceUnit": "M2",
     "category": "CERAMICOS",
     "provider": "Cerámica Albedi / Cerámica Paz",
     "measures": "51X51",
     "quality": "1ra",
     "images": [
-      "https://s3-sa-east-1.amazonaws.com/lpc-fotos/foto-19867-1-31484.jpg",
-      "https://s3-sa-east-1.amazonaws.com/lpc-fotos/foto-19867-1-31484.jpg",
-      "https://s3-sa-east-1.amazonaws.com/lpc-fotos/foto-19867-1-31484.jpg"
+      "https://example.com/image22_1.jpg",
+      "https://example.com/image22_2.jpg",
+      "https://example.com/image22_3.jpg"
     ],
-    "code": "19965",
-    "salesUnit": "$ 15.342,30 x CAJA ( 2,08 M2 )",
-    "description": "Tránsito intenso. Junta mínima 4 mm. Ligera variación de tono. ",
+    "code": "21065",
+    "salesUnit": "$ 15.800,00 x CAJA ( 2,00 M2 )",
+    "description": "Tránsito intenso. Junta mínima 4 mm. Ligera variación de tono.",
     "discount": {
-      "percentage": 10,
-      "newPrice": 7376.11
+      "percentage": 15,
+      "newPrice": 6715.00
     }
   },
   {
-    "id": 12,
-    "name": "Cortines Portland Steel",
-    "price": 9726.39,
+    "id": 23,
+    "name": "Cortines Portland Grey",
+    "price": 12000.39,
     "priceUnit": "M2",
     "category": "CERAMICOS",
     "provider": "Ceramica Cortines",
     "measures": "60X60",
     "quality": "1ra",
     "images": [
-      "https://s3-sa-east-1.amazonaws.com/lpc-fotos/foto-20004-1-31555.jpg",
-      "https://s3-sa-east-1.amazonaws.com/lpc-fotos/foto-20004-1-31555.jpg",
-      "https://s3-sa-east-1.amazonaws.com/lpc-fotos/foto-20004-1-31555.jpg"
+      "https://example.com/image23_1.jpg",
+      "https://example.com/image23_2.jpg",
+      "https://example.com/image23_3.jpg"
     ],
-    "code": "20036",
-    "salesUnit": "$ 14.006,00 x CAJA ( 1,44 M2 )",
+    "code": "22036",
+    "salesUnit": "$ 24.006,00 x CAJA ( 2,00 M2 )",
     "description": "Tránsito intenso. Junta mínima 3 mm. Diseño atractivo.",
     "discount": false
+  },
+  {
+    "id": 24,
+    "name": "Zenith Negro",
+    "price": 11000.50,
+    "priceUnit": "M2",
+    "category": "PORCELANICOS",
+    "provider": "Cerámica Zenith",
+    "measures": "60X120",
+    "quality": "1ra",
+    "images": [
+      "https://example.com/image24_1.jpg",
+      "https://example.com/image24_2.jpg",
+      "https://example.com/image24_3.jpg"
+    ],
+    "code": "23045",
+    "salesUnit": "$ 22.001,00 x CAJA ( 2,00 M2 )",
+    "description": "Aspecto símil piedra. Tránsito intenso. Mate. Espesor 9 mm.",
+    "discount": {
+      "percentage": 5,
+      "newPrice": 10450.48
+    }
+  },
+  {
+    "id": 25,
+    "name": "Elegance Grigio",
+    "price": 8200.00,
+    "priceUnit": "M2",
+    "category": "CERAMICOS",
+    "provider": "Elegance Ceramics",
+    "measures": "45X45",
+    "quality": "2da",
+    "images": [
+      "https://example.com/image25_1.jpg",
+      "https://example.com/image25_2.jpg",
+      "https://example.com/image25_3.jpg"
+    ],
+    "code": "24012",
+    "salesUnit": "$ 16.400,00 x CAJA ( 2,00 M2 )",
+    "description": "Tránsito moderado. Junta mínima 5 mm. Variación de tono media.",
+    "discount": false
+  },
+  {
+    "id": 26,
+    "name": "Classico Blanco",
+    "price": 8500.75,
+    "priceUnit": "M2",
+    "category": "CERAMICOS",
+    "provider": "Classico Ceramics",
+    "measures": "30X60",
+    "quality": "1ra",
+    "images": [
+      "https://example.com/image26_1.jpg",
+      "https://example.com/image26_2.jpg",
+      "https://example.com/image26_3.jpg"
+    ],
+    "code": "25023",
+    "salesUnit": "$ 17.001,50 x CAJA ( 2,00 M2 )",
+    "description": "Tránsito ligero. Junta mínima 3 mm. Superficie mate.",
+    "discount": false
+  },
+  {
+    "id": 27,
+    "name": "Urban Blue",
+    "price": 10000.00,
+    "priceUnit": "M2",
+    "category": "PORCELANICOS",
+    "provider": "Urban Ceramics",
+    "measures": "60X60",
+    "quality": "1ra",
+    "images": [
+      "https://example.com/image27_1.jpg",
+      "https://example.com/image27_2.jpg",
+      "https://example.com/image27_3.jpg"
+    ],
+    "code": "26078",
+    "salesUnit": "$ 20.000,00 x CAJA ( 2,00 M2 )",
+    "description": "Aspecto símil cemento. Tránsito intenso. Superficie semi-brillo.",
+    "discount": false
+  },
+  {
+    "id": 28,
+    "name": "Rustic White",
+    "price": 9200.40,
+    "priceUnit": "M2",
+    "category": "CERAMICOS",
+    "provider": "Rustic Ceramics",
+    "measures": "45X90",
+    "quality": "2da",
+    "images": [
+      "https://example.com/image28_1.jpg",
+      "https://example.com/image28_2.jpg",
+      "https://example.com/image28_3.jpg"
+    ],
+    "code": "27056",
+    "salesUnit": "$ 18.401,60 x CAJA ( 2,00 M2 )",
+    "description": "Tránsito moderado. Junta mínima 4 mm. Variación de tono alta.",
+    "discount": {
+      "percentage": 7,
+      "newPrice": 8556.37
+    }
+  },
+  {
+    "id": 29,
+    "name": "Nature Blue",
+    "price": 7800.20,
+    "priceUnit": "M2",
+    "category": "CERAMICOS",
+    "provider": "Nature Ceramics",
+    "measures": "33X33",
+    "quality": "1ra",
+    "images": [
+      "https://example.com/image29_1.jpg",
+      "https://example.com/image29_2.jpg",
+      "https://example.com/image29_3.jpg"
+    ],
+    "code": "28034",
+    "salesUnit": "$ 15.600,40 x CAJA ( 2,00 M2 )",
+    "description": "Tránsito ligero. Junta mínima 2 mm. Superficie brillante.",
+    "discount": false
+  },
+  {
+    "id": 30,
+    "name": "Vintage Grey",
+    "price": 10500.00,
+    "priceUnit": "M2",
+    "category": "PORCELANICOS",
+    "provider": "Vintage Tiles",
+    "measures": "20X20",
+    "quality": "1ra",
+    "images": [
+      "https://example.com/image30_1.jpg",
+      "https://example.com/image30_2.jpg",
+      "https://example.com/image30_3.jpg"
+    ],
+    "code": "29021",
+    "salesUnit": "$ 21.000,00 x CAJA ( 2,00 M2 )",
+    "description": "Aspecto vintage. Tránsito moderado. Superficie mate.",
+    "discount": {
+      "percentage": 12,
+      "newPrice": 9240.00
+    }
+  },
+  {
+    "id": 31,
+    "name": "Marble Effect Black",
+    "price": 13800.75,
+    "priceUnit": "M2",
+    "category": "PORCELANICOS",
+    "provider": "Marble Art Ceramics",
+    "measures": "60X120",
+    "quality": "1ra",
+    "images": [
+      "https://example.com/image31_1.jpg",
+      "https://example.com/image31_2.jpg",
+      "https://example.com/image31_3.jpg"
+    ],
+    "code": "300034",
+    "salesUnit": "$ 27.601,50 x CAJA ( 2,00 M2 )",
+    "description": "Aspecto mármol. Tránsito intenso. Superficie brillante.",
+    "discount": false
+  },
+  {
+    "id": 32,
+    "name": "Wooden Touch Grey",
+    "price": 11400.65,
+    "priceUnit": "M2",
+    "category": "PORCELANICOS",
+    "provider": "Wooden Ceramics",
+    "measures": "15X90",
+    "quality": "1ra",
+    "images": [
+      "https://example.com/image32_1.jpg",
+      "https://example.com/image32_2.jpg",
+      "https://example.com/image32_3.jpg"
+    ],
+    "code": "310056",
+    "salesUnit": "$ 22.801,30 x CAJA ( 2,00 M2 )",
+    "description": "Aspecto madera. Tránsito moderado. Superficie mate.",
+    "discount": {
+      "percentage": 8,
+      "newPrice": 10488.60
+    }
   }
 ]

@@ -7,7 +7,7 @@ const TopProducts = () => {
     <div className="TopProducts">
       <h2>Productos Destacados</h2>
       <section className="productList">
-        {data.map((product, index) => (
+        {data.slice(0,8).map((product, index) => (
           <ProductCard key={index} data={product} />
         ))}
       </section>
