@@ -60,7 +60,7 @@ const ProductListPagination = () => {
 
   return (
     <section className="ProductListPagination">
-      {!FilteredData ? (
+      {FilteredData.length === 0 ? (
         <h2 className="defaultMessage">No hay productos disponibles</h2>
       ) : (
         <>

@@ -12,6 +12,18 @@ const ProductContextComponent = ({ children }) => {
     setFilteredData(importData);
   }, []);
 
+  const filterByCategory = (category) => {
+    return null;
+  }
+
+  const filterByMeasure = (measure) => {
+    return null;
+  }
+
+  const filterByProvider = (provider) => {
+    return null;
+  }
+
   const resetData = () => {
     setFilteredData(Data);
   };
@@ -19,6 +31,9 @@ const ProductContextComponent = ({ children }) => {
   const data = {
     FilteredData,
     resetData,
+    filterByCategory,
+    filterByMeasure,
+    filterByProvider
   };
 
   return (

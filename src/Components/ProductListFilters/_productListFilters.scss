@@ -3,4 +3,18 @@
 section.ProductListFilters {
   border: 1px solid red;
   width: 30%;
+  section.FilterContainer {
+    border: 1px solid blue;
+    div.filterMenu {
+      @include var.flex-container(row, space-between, center);
+    }
+    div.filters {
+      @include var.flex-container(column, flex-start, flex-start);
+      label {
+        input {
+
+        }
+      }
+    }
+  }
 }

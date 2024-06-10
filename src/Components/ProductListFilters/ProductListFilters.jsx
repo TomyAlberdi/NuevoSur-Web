@@ -1,26 +1,21 @@
 import React from 'react'
+import FilterCategory from '@/Components/ProductListFilters/Filters/FilterCategory'
+import FilterProvider from '@/Components/ProductListFilters/Filters/FilterProvider'
+import FilterMeasure from '@/Components/ProductListFilters/Filters/FilterMeasure'
 
 const ProductListFilters = () => {
   return (
     <section className='ProductListFilters'>
 
-      <article className="FilterContainer">
-        <h3>Categoría</h3>
-      </article>
+      <FilterCategory />
+      <FilterProvider />
+      <FilterMeasure />
 
-      <article className="FilterContainer">
-        <h3>Proveedor</h3>
-      </article>
-
-      <article className="FilterContainer">
-        <h3>Medida</h3>
-      </article>
-
-      <article className="FilterContainer">
+      <article className="FilterContainer Price">
         <h3>Precio</h3>
       </article>
 
-      <article className="SingleFilterContainer">
+      <article className="SingleFilterContainer Single">
         <h3>Descuento</h3>
       </article>
 
