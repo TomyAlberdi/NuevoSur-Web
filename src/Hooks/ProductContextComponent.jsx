@@ -12,9 +12,13 @@ const ProductContextComponent = ({ children }) => {
     setFilteredData(importData);
   }, []);
 
+  const resetData = () => {
+    setFilteredData(Data);
+  };
+
   const data = {
     FilteredData,
-    setFilteredData,
+    resetData,
   };
 
   return (

@@ -1,6 +1,35 @@
 @use "var";
 
 section.ProductListPagination {
-  border: 1px solid green;
   width: 67.5%;
+  div.cardContainer {
+    @include var.flex-container(row, center, flex-start);
+    flex-wrap: wrap;
+    gap: 2.5%;
+    article.ProductCard {
+      margin-bottom: 2.5%;
+    }
+  }
+  ul {
+    @include var.flex-container(row, center, center);
+    list-style-type: none;
+    gap: 2%;
+    li {
+      padding: 1%;
+      box-shadow: var.$shadow-1;
+      border-radius: 3px;
+      @include var.flex-container(column, center, center);
+      background-color: var.$primary-black;
+      color: var.$text-light;
+      cursor: pointer;
+      &.active {
+        background-color: var.$primary-orange-light;
+      }
+    }
+    svg {
+      cursor: pointer;
+      width: 2.5vw;
+      height: 2.5vw;
+    }
+  }
 }

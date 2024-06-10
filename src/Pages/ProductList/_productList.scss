@@ -2,5 +2,5 @@
 
 div.productList {
   @include var.flex-container(row, space-between, flex-start);
-  padding: 1.5% 10%;
+  padding: 1.5% 5%;
 }
