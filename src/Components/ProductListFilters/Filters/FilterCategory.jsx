@@ -2,37 +2,18 @@ import React, { useContext, useEffect, useState } from "react";
 import { ProductContext } from "@/Hooks/ProductContextComponent";
 
 const FilterCategory = () => {
-  const { FilteredData, filterByCategory, resetData } =
-    useContext(ProductContext);
+  const { handleCategoryCheckboxChange, CategoryList } = useContext(ProductContext);
 
   const [Open, setOpen] = useState(true);
-  const [FilterApplied, setFilterApplied] = useState(false);
-
-  const [CheckedCeramicos, setCheckedCeramicos] = useState(false);
-  const [CheckedPorcelanicos, setCheckedPorcelanicos] = useState(false);
-
-  const handleCheck = (name, state, setState) => {
-    setCheckedCeramicos(false);
-    setCheckedPorcelanicos(false);
-    if (state) {
-      setState(false);
-      setFilterApplied(false);
-      resetData();
-    } else {
-      setState(true);
-      setFilterApplied(true);
-      filterByCategory(name);
-    }
-  };
 
   return (
     <section
       className={"FilterContainer multipleFilter" + (Open ? " open" : "")}
     >
-      <div className="filterMenu">
+      <div className="filterMenu" onClick={() => setOpen(!Open)}>
         <h4>Categoría</h4>
         {Open === true ? (
-          <span onClick={() => setOpen(!Open)} className="btn-open">
+          <span className="btn-open">
             <svg
               width="24"
               height="24"
@@ -50,7 +31,7 @@ const FilterCategory = () => {
             </svg>
           </span>
         ) : (
-          <span onClick={() => setOpen(!Open)} className="btn-close">
+          <span className="btn-close">
             <svg
               width="24"
               height="24"
@@ -70,52 +51,23 @@ const FilterCategory = () => {
         )}
       </div>
       <div className="filters">
-        <label>
-          <input
-            type="checkbox"
-            name="CeramicosFilter"
-            checked={CheckedCeramicos}
-            onChange={() =>
-              handleCheck(
-                "CeramicosFilter",
-                CheckedCeramicos,
-                setCheckedCeramicos
-              )
-            }
-          />
-          Cerámicos
-          <span>
-            {
-              FilteredData?.reduce(
-                (acc, product) => product.category === "CERAMICOS" ? acc + 1 : acc,
-                0
-              )
-            }
-          </span>
-        </label>
-        <label>
-          <input
-            type="checkbox"
-            name="PorcelanicosFilter"
-            checked={CheckedPorcelanicos}
-            onChange={() =>
-              handleCheck(
-                "PorcelanicosFilter",
-                CheckedPorcelanicos,
-                setCheckedPorcelanicos
-              )
-            }
-          />
-          Porcelánicos
-          <span>
-            {
-              FilteredData?.reduce(
-                (acc, product) => product.category === "PORCELANICOS" ? acc + 1 : acc,
-                0
-              )
-            }
-          </span>
-        </label>
+        {CategoryList?.map((category) => (
+          <label
+            key={category.id}
+            className={CategoryList[category.id].Checked ? "checked" : ""}
+          >
+            <input
+              id={`CategoryFilter${category.id}`}
+              type="checkbox"
+              className="checkbox"
+              name="CategoryFilter"
+              checked={category.Checked}
+              onChange={() => handleCategoryCheckboxChange(category.id)}
+            />
+            <span className="name">{category.Category}</span>
+            <span className="quantity">{category.Quantity}</span>
+          </label>
+        ))}
       </div>
     </section>
   );

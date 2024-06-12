@@ -1,19 +1,100 @@
 @use "var";
 
 section.ProductListFilters {
-  border: 1px solid red;
   width: 30%;
   section.FilterContainer {
-    border: 1px solid blue;
+    margin-bottom: 5%;
+    border: 1px solid var.$primary-black;
+    border-radius: 5px;
+    padding: 2.5% 5%;
     div.filterMenu {
       @include var.flex-container(row, space-between, center);
+      h4 {
+        font-size: 1.25rem;
+      }
+      span {
+        svg {
+          transition: 0.3s all ease-in-out;
+        }
+      }
     }
     div.filters {
-      @include var.flex-container(column, flex-start, flex-start);
+      display: none;
+      margin-top: 2.5%;
       label {
-        input {
-
+        @include var.flex-container(row, flex-start, center);
+        width: 100%;
+        margin-bottom: 2.5%;
+        input[type="checkbox"] {
+          -webkit-appearance: none;
+          appearance: none;
+          background-color: #fff;
+          font: inherit;
+          width: 1em;
+          height: 1em;
+          border: 1px solid currentColor;
+          border-radius: 3px;
+          display: grid;
+          place-content: center;
+          position: absolute;
+          &::before {
+            content: "";
+            width: 1em;
+            height: 1em;
+            opacity: 0;
+            transition: 120ms opacity ease-in-out;
+            background-color: var.$primary-orange;
+            border-radius: 3px;
+          }
+          &::after {
+            content: "L";
+            font-family: arial;
+            -ms-transform: scaleX(-1) rotate(-40deg); /* IE 9 */
+            -webkit-transform: scaleX(-1) rotate(-40deg); /* Chrome, Safari, Opera */
+            transform: scaleX(-1) rotate(-40deg);
+            position: absolute;
+            color: var.$primary-black;
+            width: 1em;
+            height: 1em;
+            top: -6px;
+            left: -2px;
+            opacity: 0;
+            transition: 120ms opacity ease-in-out;
+          }
         }
+        span.name {
+          margin-left: 1.5rem;
+        }
+        span.quantity {
+          text-align: center;
+          margin-left: auto;
+          color: var.$secondary-gray;
+          width: 24px;
+        }
+        &.checked {
+          span.name, span.quantity {
+            font-weight: 600;
+          }
+          input[type="checkbox"] {
+            &::before,
+            &::after {
+              opacity: 1;
+            }
+          }
+        }
+      }
+    }
+    &.open {
+      div.filterMenu {
+        span {
+          svg {
+            transform: rotateX(180deg);
+            transition: 0.3s all ease-in-out;
+          }
+        }
+      }
+      div.filters {
+        @include var.flex-container(column, flex-start, flex-start);
       }
     }
   }
