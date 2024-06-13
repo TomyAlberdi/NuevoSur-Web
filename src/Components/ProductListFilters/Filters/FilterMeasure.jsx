@@ -64,7 +64,7 @@ const FilterMeasure = () => {
               checked={measure.Checked}
               onChange={() => handleMeasureCheckboxChange(measure.id)}
             />
-            <span className="name">{measure.Measure}</span>
+            <span className="name">{measure.Measures}</span>
             <span className="quantity">{measure.Quantity}</span>
           </label>
         ))}

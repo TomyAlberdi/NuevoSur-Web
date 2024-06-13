@@ -5,11 +5,6 @@ export const ProductContext = createContext();
 
 const ProductContextComponent = ({ children }) => {
   const [Data, setData] = useState([]);
-  const [FilteredData, setFilteredData] = useState([]);
-
-  const resetData = () => {
-    setFilteredData(Data);
-  };
 
   // CATEGORIES //////////////////////////////////////////////////////////////////
   const [CategoryList, setCategoryList] = useState([]);
@@ -30,19 +25,24 @@ const ProductContextComponent = ({ children }) => {
   };
 
   const handleCategoryCheckboxChange = (id) => {
+    let newAppliedFilters = AppliedFilters.filter(
+      (filter) => filter.type !== "category"
+    );
+
     const updatedItems = CategoryList.map((item) => {
       if (item.id === id) {
         const newChecked = !item.Checked;
         if (newChecked) {
-          filterByCategory(item.Category);
-        } else {
-          setUncheckAll(!UncheckAll);
+          newAppliedFilters.push({ type: "category", value: item.Category });
         }
         return { ...item, Checked: newChecked };
       }
       return { ...item, Checked: false };
     });
+
+    setAppliedFilters(newAppliedFilters);
     setCategoryList(updatedItems);
+    filterData(newAppliedFilters);
   };
   ////////////////////////////////////////////////////////////////////////////////
 
@@ -65,19 +65,24 @@ const ProductContextComponent = ({ children }) => {
   };
 
   const handleProviderCheckboxChange = (id) => {
+    let newAppliedFilters = AppliedFilters.filter(
+      (filter) => filter.type !== "provider"
+    );
+
     const updatedItems = ProviderList.map((item) => {
       if (item.id === id) {
         const newChecked = !item.Checked;
         if (newChecked) {
-          filterByProvider(item.Provider);
-        } else {
-          setUncheckAll(!UncheckAll);
+          newAppliedFilters.push({ type: "provider", value: item.Provider });
         }
         return { ...item, Checked: newChecked };
       }
       return { ...item, Checked: false };
     });
+
+    setAppliedFilters(newAppliedFilters);
     setProviderList(updatedItems);
+    filterData(newAppliedFilters);
   };
   ////////////////////////////////////////////////////////////////////////////////
 
@@ -92,7 +97,7 @@ const ProductContextComponent = ({ children }) => {
 
     const result = Object.keys(measureCount).map((measures, index) => ({
       id: index,
-      Measure: measures,
+      Measures: measures,
       Quantity: measureCount[measures],
       Checked: false,
     }));
@@ -101,42 +106,61 @@ const ProductContextComponent = ({ children }) => {
   };
 
   const handleMeasureCheckboxChange = (id) => {
+    let newAppliedFilters = AppliedFilters.filter(
+      (filter) => filter.type !== "measures"
+    );
+
     const updatedItems = MeasureList.map((item) => {
       if (item.id === id) {
         const newChecked = !item.Checked;
         if (newChecked) {
-          filterByMeasure(item.Measure);
-        } else {
-          setUncheckAll(!UncheckAll);
+          newAppliedFilters.push({ type: "measures", value: item.Measures });
         }
         return { ...item, Checked: newChecked };
       }
       return { ...item, Checked: false };
     });
+
+    setAppliedFilters(newAppliedFilters);
     setMeasureList(updatedItems);
+    filterData(newAppliedFilters);
   };
   ////////////////////////////////////////////////////////////////////////////////
 
-  /* 
-    ENCONTRAR LA MANERA UTILIZAR setUncheckAll(!UncheckAll); DE MANERA CORRECTA
-    COMPORTAMIENTO ACTUAL:
-      TODAS LAS CHECKBOX SE DESACTIVAN SOLO CUANDO SE HACE CLICK EN UNA CHECKBOX PARA DESACTIVARLA
-    COMPORTAMIENTO DESEADO:
-      TODAS LAS CHECKBOX TAMBIÉN SE DESACTIVAN SI SE CAMBIA DE CHECKBOXES DENTRO DE UNA MISMA LISTA
-      Solución probable:
-      if (item.id !== id && item.Checked) {
-        setUncheckAll(!UncheckAll);
+  // FILTER LOGIC ///////////////////////////////////////////////////////////////
+
+  const [FilteredData, setFilteredData] = useState([]);
+  const [AppliedFilters, setAppliedFilters] = useState([]);
+
+  const resetData = () => {
+    setFilteredData(Data);
+  };
+
+  const filterData = (appliedFilters) => {
+    let filteredData = Data;
+
+    appliedFilters.forEach((filter) => {
+      if (filter.type === "category") {
+        filteredData = filteredData.filter(
+          (product) => product.category === filter.value
+        );
       }
-  */
+      if (filter.type === "provider") {
+        filteredData = filteredData.filter(
+          (product) => product.provider === filter.value
+        );
+      }
+      if (filter.type === "measures") {
+        filteredData = filteredData.filter(
+          (product) => product.measures === filter.value
+        );
+      }
+    });
 
-  const [UncheckAll, setUncheckAll] = useState(false);
+    setFilteredData(filteredData);
+  };
 
-  useEffect(() => {
-    setCategoryList(CategoryList.map((item) => ({ ...item, Checked: false })));
-    setProviderList(ProviderList.map((item) => ({ ...item, Checked: false })));
-    setMeasureList(MeasureList.map((item) => ({ ...item, Checked: false })));
-    resetData();
-  }, [UncheckAll]);
+  ////////////////////////////////////////////////////////////////////////////////
 
   useEffect(() => {
     mapProviders();
@@ -149,38 +173,19 @@ const ProductContextComponent = ({ children }) => {
     setFilteredData(importData);
   }, []);
 
-  const filterByCategory = (category) => {
-    console.log(category);
-    return null;
-  };
-
-  const filterByMeasure = (measure) => {
-    console.log(measure);
-    return null;
-  };
-
-  const filterByProvider = (provider) => {
-    console.log(provider);
-    return null;
-  };
-
   const data = {
     Data,
     FilteredData,
     resetData,
-    setUncheckAll,
     // Providers
     ProviderList,
     handleProviderCheckboxChange,
-    filterByProvider,
     // Measures
     MeasureList,
     handleMeasureCheckboxChange,
-    filterByMeasure,
     // Categories
     CategoryList,
     handleCategoryCheckboxChange,
-    filterByCategory,
   };
 
   return (
