@@ -83,6 +83,8 @@ section.ProductListFilters {
           }
         }
       }
+      &.price {
+      }
     }
     &.open {
       div.filterMenu {
@@ -95,6 +97,9 @@ section.ProductListFilters {
       }
       div.filters {
         @include var.flex-container(column, flex-start, flex-start);
+        &.price {
+          @include var.flex-container(row, space-between, center);
+        }
       }
     }
   }

@@ -127,6 +127,26 @@ const ProductContextComponent = ({ children }) => {
   };
   ////////////////////////////////////////////////////////////////////////////////
 
+  // PRICE //////////////////////////////////////////////////////////////////////
+
+  const [MinPrice, setMinPrice] = useState(0)
+  const [MaxPrice, setMaxPrice] = useState(0)
+
+  const getMinMaxPrice = () => {
+    const minPriceLocal = Data?.reduce((min, product) => {
+      return Math.min(min, product.price);
+    }, Infinity);
+    const maxPriceLocal = Data?.reduce((max, product) => {
+      return Math.max(max, product.price);
+    }, -Infinity);
+
+    setMinPrice(minPriceLocal)
+    setMaxPrice(maxPriceLocal)
+
+  };
+
+  ////////////////////////////////////////////////////////////////////////////////
+
   // FILTER LOGIC ///////////////////////////////////////////////////////////////
 
   const [FilteredData, setFilteredData] = useState([]);
@@ -166,6 +186,7 @@ const ProductContextComponent = ({ children }) => {
     mapProviders();
     mapMeasures();
     mapCategories();
+    getMinMaxPrice();
   }, [Data]);
 
   useEffect(() => {
@@ -186,6 +207,9 @@ const ProductContextComponent = ({ children }) => {
     // Categories
     CategoryList,
     handleCategoryCheckboxChange,
+    // Price
+    MinPrice,
+    MaxPrice,
   };
 
   return (
