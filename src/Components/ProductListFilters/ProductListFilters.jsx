@@ -3,6 +3,7 @@ import FilterCategory from '@/Components/ProductListFilters/Filters/FilterCatego
 import FilterProvider from '@/Components/ProductListFilters/Filters/FilterProvider'
 import FilterMeasure from '@/Components/ProductListFilters/Filters/FilterMeasure'
 import FilterPrice from '@/Components/ProductListFilters/Filters/FilterPrice'
+import FilterDiscount from '@/Components/ProductListFilters/Filters/FilterDiscount'
 
 const ProductListFilters = () => {
   return (
@@ -12,10 +13,7 @@ const ProductListFilters = () => {
       <FilterProvider />
       <FilterMeasure />
       <FilterPrice />
-
-      <article className="SingleFilterContainer Single">
-        <h3>Descuento</h3>
-      </article>
+      <FilterDiscount />
 
     </section>
   )

@@ -158,6 +158,23 @@ const ProductContextComponent = ({ children }) => {
 
   ////////////////////////////////////////////////////////////////////////////////
 
+  // DISCOUNT ///////////////////////////////////////////////////////////////////
+
+  const handleDiscountCheckboxChange = (checked) => {
+    let newAppliedFilters = AppliedFilters.filter(
+      (filter) => filter.type !== "discount"
+    );
+
+    if (checked) {
+      newAppliedFilters.push({ type: "discount", value: true });
+    }
+
+    setAppliedFilters(newAppliedFilters);
+    filterData(newAppliedFilters);
+  }
+
+  ////////////////////////////////////////////////////////////////////////////////
+
   // FILTER LOGIC ///////////////////////////////////////////////////////////////
 
   const [FilteredData, setFilteredData] = useState([]);
@@ -189,6 +206,11 @@ const ProductContextComponent = ({ children }) => {
       if (filter.type === "price") {
         filteredData = filteredData.filter(
           (product) => product.price >= filter.value[0] && product.price <= filter.value[1]
+        );
+      }
+      if (filter.type === "discount") {
+        filteredData = filteredData.filter(
+          (product) => product.discount !== false
         );
       }
     });
@@ -227,6 +249,8 @@ const ProductContextComponent = ({ children }) => {
     MinPrice,
     MaxPrice,
     handlePriceRangeChange,
+    // Discount
+    handleDiscountCheckboxChange,
   };
 
   return (

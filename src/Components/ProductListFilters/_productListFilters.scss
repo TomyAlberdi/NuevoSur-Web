@@ -17,6 +17,55 @@ section.ProductListFilters {
           transition: 0.3s all ease-in-out;
         }
       }
+      &.discount {
+        position: relative;
+        input[type="checkbox"] {
+          -webkit-appearance: none;
+          appearance: none;
+          background-color: #fff;
+          font: inherit;
+          width: 1em;
+          height: 1em;
+          border: 1px solid currentColor;
+          border-radius: 3px;
+          display: grid;
+          place-content: center;
+          position: absolute;
+          right: 0;
+          &::before {
+            content: "";
+            width: 1em;
+            height: 1em;
+            opacity: 0;
+            transition: 120ms opacity ease-in-out;
+            background-color: var.$primary-orange;
+            border-radius: 3px;
+          }
+          &::after {
+            content: "L";
+            font-family: arial;
+            -ms-transform: scaleX(-1) rotate(-40deg); /* IE 9 */
+            -webkit-transform: scaleX(-1) rotate(-40deg); /* Chrome, Safari, Opera */
+            transform: scaleX(-1) rotate(-40deg);
+            position: absolute;
+            color: var.$primary-black;
+            width: 1em;
+            height: 1em;
+            top: -6px;
+            left: -2px;
+            opacity: 0;
+            transition: 120ms opacity ease-in-out;
+          }
+        }
+        &.checked {
+          input[type="checkbox"] {
+            &::before,
+            &::after {
+              opacity: 1;
+            }
+          }
+        }
+      }
     }
     div.filters {
       display: none;
