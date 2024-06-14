@@ -9,6 +9,7 @@ section.ProductListFilters {
     padding: 2.5% 5%;
     div.filterMenu {
       @include var.flex-container(row, space-between, center);
+      cursor: pointer;
       h4 {
         font-size: 1.25rem;
       }
@@ -71,6 +72,7 @@ section.ProductListFilters {
       display: none;
       margin-top: 2.5%;
       label {
+        cursor: pointer;
         @include var.flex-container(row, flex-start, center);
         width: 100%;
         margin-bottom: 2.5%;

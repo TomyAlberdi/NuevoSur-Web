@@ -13,14 +13,13 @@ const FilterDiscount = () => {
 
   return (
     <section className={"FilterContainer"}>
-      <div className={"filterMenu discount" + (Checked ? " checked" : "")}>
+      <div className={"filterMenu discount" + (Checked ? " checked" : "")} onClick={handleCheck}>
         <h4>Con descuento</h4>
         <input
           type="checkbox"
           className="checkbox"
           name="DiscountFilter"
           checked={Checked}
-          onChange={handleCheck}
         />
       </div>
     </section>
