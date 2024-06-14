@@ -145,6 +145,17 @@ const ProductContextComponent = ({ children }) => {
 
   };
 
+  const handlePriceRangeChange = (range) => {
+    let newAppliedFilters = AppliedFilters.filter(
+      (filter) => filter.type !== "price"
+    );
+
+    newAppliedFilters.push({ type: "price", value: range });
+
+    setAppliedFilters(newAppliedFilters);
+    filterData(newAppliedFilters);
+  }
+
   ////////////////////////////////////////////////////////////////////////////////
 
   // FILTER LOGIC ///////////////////////////////////////////////////////////////
@@ -173,6 +184,11 @@ const ProductContextComponent = ({ children }) => {
       if (filter.type === "measures") {
         filteredData = filteredData.filter(
           (product) => product.measures === filter.value
+        );
+      }
+      if (filter.type === "price") {
+        filteredData = filteredData.filter(
+          (product) => product.price >= filter.value[0] && product.price <= filter.value[1]
         );
       }
     });
@@ -210,6 +226,7 @@ const ProductContextComponent = ({ children }) => {
     // Price
     MinPrice,
     MaxPrice,
+    handlePriceRangeChange,
   };
 
   return (

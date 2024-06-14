@@ -72,7 +72,8 @@ section.ProductListFilters {
           width: 24px;
         }
         &.checked {
-          span.name, span.quantity {
+          span.name,
+          span.quantity {
             font-weight: 600;
           }
           input[type="checkbox"] {
@@ -84,6 +85,27 @@ section.ProductListFilters {
         }
       }
       &.price {
+        margin-top: 0;
+        width: 100%;
+        padding: 5% 2.5%;
+        .slider_component {
+          width: 100%;
+          height: 10px;
+          background-color: var.$primary-black;
+          border-radius: 3px;
+        }
+        .thumb {
+          text-align: center;
+          background-color: var.$primary-orange;
+          color: var.$text-light;
+          padding: 1.5%;
+          border-radius: 3px;
+          box-shadow: var.$shadow-1;
+          cursor: pointer;
+          min-width: 30px;
+          font-size: 0.9rem;
+          top: -8px;
+        }
       }
     }
     &.open {
@@ -98,7 +120,7 @@ section.ProductListFilters {
       div.filters {
         @include var.flex-container(column, flex-start, flex-start);
         &.price {
-          @include var.flex-container(row, space-between, center);
+          @include var.flex-container(column, flex-start, flex-start);
         }
       }
     }

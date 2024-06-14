@@ -1,57 +1,11 @@
 import React, { useContext, useEffect, useState } from "react";
 import { ProductContext } from "@/Hooks/ProductContextComponent";
-import $ from "jquery";
+import ReactSlider from "react-slider";
 
 const FilterPrice = () => {
-  const { MinPrice, MaxPrice } = useContext(ProductContext);
+  const { MinPrice, MaxPrice, handlePriceRangeChange } = useContext(ProductContext);
 
   const [Open, setOpen] = useState(true);
-  const [Range, setRange] = useState({
-    min: MinPrice,
-    max: MaxPrice,
-  });
-
-  useEffect(() => {
-    $(".js-range-slider").ionRangeSlider({
-      min: Range.min,
-      max: Range.max,
-      from: Range.min,
-      to: Range.max,
-      type: "double",
-      hideLimitLabels: true,
-      hidePointerLabels: true,
-      prefix: "$",
-      postfix: "",
-      keyboard: true,
-      grid: true,
-      grid_num: 10,
-      grid_snap: true,
-      force_edges: true,
-      drag_interval: true,
-      drag_min_value: true,
-      drag_max_value: true,
-      values: [Range.min, Range.max],
-      onStart: function (data) {
-        setRange({
-          min: data.from,
-          max: data.to,
-        });
-      },
-      onEnd: function (data) {
-        setRange({
-          min: data.from,
-          max: data.to,
-        });
-      },
-      onSlide: function (data) {
-        setRange({
-          min: data.from,
-          max: data.to,
-        });
-        console.log(data);
-      },
-    });
-  }, [Range]);
 
   return (
     <section className={"FilterContainer" + (Open ? " open" : "")}>
@@ -96,18 +50,23 @@ const FilterPrice = () => {
         )}
       </div>
       <div className="filters price">
-        <span>{MinPrice ? MinPrice : "0"}</span>
-        {/* 
-        https://www.npmjs.com/package/ion-rangeslider
-        http://ionden.com/a/plugins/ion.rangeSlider/start.html
-        */}
-        <input
-          type="text"
-          className="js-range-slider"
-          name="my_range"
-          value=""
-        />
-        <span>{MaxPrice ? MaxPrice : "0"}</span>
+        {(MinPrice && MaxPrice) > 0 ? ( 
+          <ReactSlider
+            className="slider_component"
+            thumbClassName="thumb"
+            trackClassName="track"
+            defaultValue={[MinPrice, MaxPrice]}
+            min={MinPrice}
+            max={MaxPrice}
+            onAfterChange={(value) => {
+              handlePriceRangeChange(value);
+            }}
+            renderThumb={(props, state) => (
+              <div {...props}>{state.valueNow}</div>
+            )}
+            pearling
+          />
+        ) : null}
       </div>
     </section>
   );
