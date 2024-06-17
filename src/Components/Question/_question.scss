@@ -1,0 +1,44 @@
+@use "var";
+
+article.question {
+  margin-bottom: 1rem;
+  border-radius: 5px;
+  box-shadow: var.$shadow-2;
+  width: 100%;
+  @include var.flex-container(column, flex-start, flex-start);
+  section {
+    width: 100%;
+    &.question {
+      cursor: pointer;
+      padding: 1rem;
+      color: var.$text-light;
+      @include var.flex-container(row, space-between, center);
+      border-radius: inherit;
+      background-color: var.$primary-black;
+      svg {
+        transition: transform 0.3s ease-in-out; 
+        width: 1.5rem;
+      }
+    }
+    &.answer {
+      padding: 1rem;
+      display: none;
+      line-height: 1.5rem;
+      background-color: white;
+      border-radius: 0 0 5px 5px;
+    }
+  }
+  &.open {
+    section {
+      &.question {
+        svg {
+          transition: transform 0.3s ease-in-out;
+          transform: rotateX(180deg);
+        }
+      }
+      &.answer {
+        display: block;
+      }
+    }
+  }
+}

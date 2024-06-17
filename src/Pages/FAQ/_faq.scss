@@ -1,0 +1,19 @@
+@use "var";
+
+section.faq {
+  min-height: 72.5vh;
+  padding: 0 10% 1%;
+  @include var.flex-container(column, flex-start, flex-start);
+  background-color: var.$light-gray;
+  h2 {
+    padding: 1% 0 2.5%;
+    font-size: 2rem;
+    span {
+      color: var.$primary-orange-light;
+    }
+  }
+  div.faq_list {
+    @include var.flex-container(column, flex-start, flex-start);
+    width: 100%;
+  }
+}
