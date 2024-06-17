@@ -1,10 +1,13 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { FaSquarePlus } from "react-icons/fa6";
 
 const ProductCard = ({ data }) => {
+
+  const navigate = useNavigate();
+
   return (
-    <article className="ProductCard">
+    <article className="ProductCard" onClick={() => navigate(`/product/${data.id}`)}>
       {
         data.discount && (
           <section className="discountFlag">
