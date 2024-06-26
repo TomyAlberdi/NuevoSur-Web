@@ -1,0 +1,20 @@
+@use "var";
+
+section.Search {
+  padding:  1% 2.5% 2.5% 2.5%;
+  background-color: var.$light-gray;
+  div.searchHeader {
+    margin-bottom: 2%;
+    h2 {
+      font-size: 2rem;
+    }
+  }
+  div.searchResults {
+    @include var.flex-container(row, flex-start, flex-start);
+    gap: 1%;
+    flex-wrap: wrap;
+    article.ProductCard {
+      margin-bottom: 1%;
+    }
+  }
+}

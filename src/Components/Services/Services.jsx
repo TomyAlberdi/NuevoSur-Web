@@ -7,7 +7,7 @@ const Services = () => {
   return (
     <div className="Services">
       <article>
-        <a href="/preguntas-frecuentes">
+        <a href="/faq">
           <span>
             <FaQuestion />
           </span>

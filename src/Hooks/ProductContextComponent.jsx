@@ -44,7 +44,6 @@ const ProductContextComponent = ({ children }) => {
     setCategoryList(updatedItems);
     filterData(newAppliedFilters);
   };
-  ////////////////////////////////////////////////////////////////////////////////
 
   // PROVIDERS //////////////////////////////////////////////////////////////////
   const [ProviderList, setProviderList] = useState([]);
@@ -84,7 +83,6 @@ const ProductContextComponent = ({ children }) => {
     setProviderList(updatedItems);
     filterData(newAppliedFilters);
   };
-  ////////////////////////////////////////////////////////////////////////////////
 
   // MEASURES //////////////////////////////////////////////////////////////////
   const [MeasureList, setMeasureList] = useState([]);
@@ -125,12 +123,11 @@ const ProductContextComponent = ({ children }) => {
     setMeasureList(updatedItems);
     filterData(newAppliedFilters);
   };
-  ////////////////////////////////////////////////////////////////////////////////
 
   // PRICE //////////////////////////////////////////////////////////////////////
 
-  const [MinPrice, setMinPrice] = useState(0)
-  const [MaxPrice, setMaxPrice] = useState(0)
+  const [MinPrice, setMinPrice] = useState(0);
+  const [MaxPrice, setMaxPrice] = useState(0);
 
   const getMinMaxPrice = () => {
     const minPriceLocal = Data?.reduce((min, product) => {
@@ -140,9 +137,8 @@ const ProductContextComponent = ({ children }) => {
       return Math.max(max, product.price);
     }, -Infinity);
 
-    setMinPrice(minPriceLocal)
-    setMaxPrice(maxPriceLocal)
-
+    setMinPrice(minPriceLocal);
+    setMaxPrice(maxPriceLocal);
   };
 
   const handlePriceRangeChange = (range) => {
@@ -154,9 +150,7 @@ const ProductContextComponent = ({ children }) => {
 
     setAppliedFilters(newAppliedFilters);
     filterData(newAppliedFilters);
-  }
-
-  ////////////////////////////////////////////////////////////////////////////////
+  };
 
   // DISCOUNT ///////////////////////////////////////////////////////////////////
 
@@ -171,9 +165,7 @@ const ProductContextComponent = ({ children }) => {
 
     setAppliedFilters(newAppliedFilters);
     filterData(newAppliedFilters);
-  }
-
-  ////////////////////////////////////////////////////////////////////////////////
+  };
 
   // FILTER LOGIC ///////////////////////////////////////////////////////////////
 
@@ -205,7 +197,8 @@ const ProductContextComponent = ({ children }) => {
       }
       if (filter.type === "price") {
         filteredData = filteredData.filter(
-          (product) => product.price >= filter.value[0] && product.price <= filter.value[1]
+          (product) =>
+            product.price >= filter.value[0] && product.price <= filter.value[1]
         );
       }
       if (filter.type === "discount") {
@@ -218,7 +211,24 @@ const ProductContextComponent = ({ children }) => {
     setFilteredData(filteredData);
   };
 
-  ////////////////////////////////////////////////////////////////////////////////
+  // SEARCH LOGIC //////////////////////////////////////////////////////////////
+
+  const handleSearch = (query) => {
+    let filteredData = [];
+    if (query.length > 0) {
+      filteredData = Data.filter((item) => {
+        return (
+          item.name.toLowerCase().includes(query.toLowerCase()) ||
+          item.description.toLowerCase().includes(query.toLowerCase()) ||
+          item.category.toLowerCase().includes(query.toLowerCase()) ||
+          item.provider.toLowerCase().includes(query.toLowerCase()) ||
+          item.measures.toLowerCase().includes(query.toLowerCase()) ||
+          item.price.toString().includes(query.toString())
+        );
+      });
+    }
+    return filteredData;
+  };
 
   useEffect(() => {
     mapProviders();
@@ -251,6 +261,8 @@ const ProductContextComponent = ({ children }) => {
     handlePriceRangeChange,
     // Discount
     handleDiscountCheckboxChange,
+    // Search
+    handleSearch,
   };
 
   return (

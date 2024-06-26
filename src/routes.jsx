@@ -5,6 +5,7 @@ import Home from "@/Pages/Home/Home";
 import Product from "@/Pages/Product/Product";
 import ProductList from "@/Pages/ProductList/ProductList";
 import FAQ from "@/Pages/FAQ/FAQ";
+import Search from "@/Pages/Search/Search";
 
 const CustomRouter = () => {
   return useRoutes([
@@ -49,7 +50,7 @@ const CustomRouter = () => {
       ],
     },
     {
-      path: "/preguntas-frecuentes",
+      path: "/faq",
       element: <Layout />,
       children: [
         {
@@ -63,6 +64,21 @@ const CustomRouter = () => {
         },
       ],
     },
+    {
+      path: "/search/:query",
+      element: <Layout />,
+      children: [
+        {
+          element: <LayoutProduct />,
+          children: [
+            {
+              index: true,
+              element: <Search />,
+            },
+          ],
+        }
+      ]
+    }
   ]);
 };
 

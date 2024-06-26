@@ -2,10 +2,18 @@ import React from "react";
 import { Link } from "react-router-dom";
 import data from "@/Utils/catNavbar.json";
 import BotNavbarItem from "@/Components/Navbar/components/BotNavbarItem";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
+
+  const navigate = useNavigate();
+
   const handleSearch = (e) => {
     e.preventDefault();
+    if (e.target.search_prompt.value.length > 0) {
+      navigate(`/search/${e.target.search_prompt.value}`);
+    }
+    document.getElementById("search_prompt").value = "";
   };
 
   return (
@@ -22,9 +30,9 @@ const Navbar = () => {
         <form className="searchBar" onSubmit={handleSearch}>
           <input
             type="text"
+            id="search_prompt"
             name="search_prompt"
             placeholder="Buscar"
-            onChange={handleSearch}
           />
           <button type="submit">
             <svg
