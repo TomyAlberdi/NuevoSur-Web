@@ -1,7 +1,9 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const BotNavbarItem = ({ data }) => {
+  const navigate = useNavigate();
+
   const [showSubcategories, setShowSubcategories] = useState(false);
 
   const [FadeAnimation, setFadeAnimation] = useState(false);
@@ -19,6 +21,7 @@ const BotNavbarItem = ({ data }) => {
       className="botNavbarItem"
       onMouseEnter={() => setShowSubcategories(true)}
       onMouseLeave={handleOnMouseOut}
+      onClick={() => navigate(`/search/${data.category}`)}
     >
       <Link>
         {data.category}
@@ -41,7 +44,15 @@ const BotNavbarItem = ({ data }) => {
       <div className={"subcategories " + (FadeAnimation ? "fade" : "")}>
         {showSubcategories &&
           data.subcategories?.map((subcategory, index) => (
-            <Link key={index}>{subcategory}</Link>
+            <Link
+              key={index}
+              to={`/search/${subcategory}`}
+              onClick={(e) => {
+                e.stopPropagation();
+              }}
+            >
+              {subcategory}
+            </Link>
           ))}
       </div>
     </article>

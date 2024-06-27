@@ -17,7 +17,14 @@
         "priceUnit": "M2",
         "provider": "Cerámica Cañuelas",
         "quality": "1ra",
-        "salesUnit": "$ 36.871,10 x CAJA ( 1,37 M2 )"
+        "salesUnit": "$ 36.871,10 x CAJA ( 1,37 M2 )",
+        "tags": [
+            "Porcelanatos",
+            "Mármol",
+            "Marmol",
+            "Baño",
+            "Piscina"
+        ]
     },
     {
         "category": "CERAMICOS",
@@ -40,7 +47,14 @@
         "priceUnit": "M2",
         "provider": "Cerámica Albedi / Cerámica Paz",
         "quality": "1ra",
-        "salesUnit": "$ 15.342,30 x CAJA ( 2,08 M2 )"
+        "salesUnit": "$ 15.342,30 x CAJA ( 2,08 M2 )",
+        "tags":[
+            "Cerámicos",
+            "Porcelanatos",
+            "Ambientaciones",
+            "Promos",
+            "Pisos y revestimientos"
+        ]
     },
     {
         "category": "CERAMICOS",
