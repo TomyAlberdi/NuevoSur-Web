@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { ProductContext } from "@/Hooks/ProductContextComponent";
 import ProductCard from "@/Components/ProductCard/ProductCard";
+import { RxCross1 } from "react-icons/rx";
 
 const Search = () => {
   const [Results, setResults] = useState([]);
@@ -20,9 +21,15 @@ const Search = () => {
         <h2>Resultados para: {query}</h2>
       </div>
       <div className="searchResults">
-        {Results.map((item, index) => (
-          <ProductCard data={item} key={index} />
-        ))}
+        {Results.length > 0 ? (
+          Results.map((item, index) => <ProductCard data={item} key={index} />)
+        ) : (
+          <div className="noResultPanel">
+            <span>
+              <RxCross1 />
+              No se encontraron resultados</span>
+          </div>
+        )}
       </div>
     </section>
   );

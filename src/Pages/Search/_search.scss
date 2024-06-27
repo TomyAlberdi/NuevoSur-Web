@@ -17,5 +17,28 @@ section.Search {
     article.ProductCard {
       margin-bottom: 1vw;
     }
+    div.noResultPanel {
+      @include var.flex-container(row,center,center);
+      width: 100vw;
+      text-align: center;
+      height: 55vh;
+      span {
+        @include var.flex-container(row,center,center);
+        box-shadow: var.$shadow-2;
+        svg {
+          width: 5vw;
+          height: 5vw;
+          path {
+            fill: var.$text-light;
+          }
+        }
+        background-color: var.$primary-black;
+        border-radius: 5px;
+        color: var.$text-light;
+        font-size: 2rem;
+        gap: 15px;
+        padding: 2.5%;
+      }
+    }
   }
 }
