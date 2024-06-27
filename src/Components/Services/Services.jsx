@@ -1,33 +1,34 @@
 import React from "react";
 import { FaPhone, FaQuestion } from "react-icons/fa";
 import { MdLocalGroceryStore } from "react-icons/md";
+import { Link } from "react-router-dom";
 
 const Services = () => {
   return (
     <div className="Services">
       <article>
-        <a href="/faq">
+        <Link to={"/faq"}>
           <span>
             <FaQuestion />
           </span>
           Preguntas frecuentes
-        </a>
+        </Link>
       </article>
       <article>
-        <a href="/list">
+        <Link to="/list">
           <span>
             <MdLocalGroceryStore />
           </span>
           Productos
-        </a>
+        </Link>
       </article>
       <article>
-        <a href="/contact">
+        <Link to="/contact">
           <span>
             <FaPhone />
           </span>
           Contacto
-        </a>
+        </Link>
       </article>
     </div>
   );
