@@ -2,7 +2,7 @@
 
 div.Services {
   width: 80%;
-  @include var.flex-container(row, space-between, center);
+  @include var.flex-container(row, space-evenly, center);
   padding: 1.5% 0;
   article {
     width: 24%;

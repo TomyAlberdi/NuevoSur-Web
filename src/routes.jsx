@@ -6,6 +6,7 @@ import Product from "@/Pages/Product/Product";
 import ProductList from "@/Pages/ProductList/ProductList";
 import FAQ from "@/Pages/FAQ/FAQ";
 import Search from "@/Pages/Search/Search";
+import Contact from "@/Pages/Contact/Contact";
 
 const CustomRouter = () => {
   return useRoutes([
@@ -76,9 +77,19 @@ const CustomRouter = () => {
               element: <Search />,
             },
           ],
-        }
-      ]
-    }
+        },
+      ],
+    },
+    {
+      path: "/contact",
+      element: <Layout />,
+      children: [
+        {
+          index: true,
+          element: <Contact />,
+        },
+      ],
+    },
   ]);
 };
 
