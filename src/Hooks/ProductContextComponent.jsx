@@ -223,7 +223,8 @@ const ProductContextComponent = ({ children }) => {
           item.category.toLowerCase().includes(query.toLowerCase()) ||
           item.provider.toLowerCase().includes(query.toLowerCase()) ||
           item.measures.toLowerCase().includes(query.toLowerCase()) ||
-          item.price.toString().includes(query.toString())
+          item.price.toString().includes(query.toString()) ||
+          item.discount?.newPrice?.toString().includes(query.toString()) 
         );
       });
     }

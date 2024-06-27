@@ -11,10 +11,11 @@ section.Search {
   }
   div.searchResults {
     @include var.flex-container(row, flex-start, flex-start);
-    gap: 1%;
+    width: 91.75vw;
+    gap: 1vw;
     flex-wrap: wrap;
     article.ProductCard {
-      margin-bottom: 1%;
+      margin-bottom: 1vw;
     }
   }
 }
