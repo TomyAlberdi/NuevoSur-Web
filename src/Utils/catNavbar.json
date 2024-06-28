@@ -1,0 +1,40 @@
+[
+  {
+    "category": "Cerámicos",
+    "subcategories": null
+  },
+  {
+    "category": "Porcelanatos",
+    "subcategories": null
+  },
+  {
+    "category": "Ambientaciones",
+    "subcategories": [
+      "Baño",
+      "Living",
+      "Cocina",
+      "Quincho",
+      "Dormitorio",
+      "Patio",
+      "Fachada",
+      "Piscina"
+    ]
+  },
+  {
+    "category": "Promos",
+    "subcategories": null
+  },
+  {
+    "category": "Pisos y revestimientos",
+    "subcategories": [
+      "Simil Madera",
+      "Cementos",
+      "Marmolados",
+      "Piedras",
+      "Revestimientos De Pared",
+      "Lisos",
+      "Pulidos",
+      "Simil Calcareos"
+    ]
+  }
+]

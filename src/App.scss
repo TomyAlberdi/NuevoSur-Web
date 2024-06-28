@@ -1,9 +1,69 @@
+@use "var";
+@use "@/Pages/Home/home";
+@use "@/Components/Navbar/navbar";
+@use "@/Components/Footer/footer";
+@use "@/Components/TopProducts/topProducts";
+@use "@/Components/Services/services";
+@use "@/Pages/Product/product";
+@use "@/Components/ProductCard/productCard";
+@use "@/Pages/ProductList/productList";
+@use "@/Components/ProductListPagination/productListPagination";
+@use "@/Components/ProductListFilters/productListFilters";
+@use "@/Pages/FAQ/faq";
+@use "@/Components/Question/question";
+@use "@/Pages/Search/search";
+@use "@/Pages/Contact/contact";
+
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+@font-face {
+  font-family: "BebasNeue-Regular";
+  src: url("@/assets/fonts/BebasNeue/BebasNeue-Regular.ttf") format("truetype");
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+  color: var.$text-dark;
+  &.bebas {
+    font-family: "BebasNeue-Regular", sans-serif;
+  }
 }
 
 div.App {
-  border: 1px solid red;
+  div.Layout {
+    min-height: 100vh;
+    div.LayoutProduct {
+      section.productHeader {
+        height: 9vh;
+        padding: 1% 10%;
+        background-color: var.$light-gray;
+        button {
+          @include var.flex-container(row, center, center);
+          height: 100%;
+          width: 10vw;
+          border: none;
+          background-color: var.$primary-orange-light;
+          border-radius: 5px;
+          box-shadow: var.$shadow-1;
+          color: var.$text-light;
+          gap: 5%;
+          font-size: 1.1vw;
+          svg {
+            path {
+              fill: var.$text-light;
+            }
+          }
+          transition: 0.3s all ease-in-out;
+          &:hover {
+            cursor: pointer;
+            transition: 0.3s all ease-in-out;
+            opacity: 0.8;
+          }
+        }
+      }
+    }
+  }
 }

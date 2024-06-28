@@ -1,0 +1,163 @@
+@use "var";
+
+div.Product {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr) 0.75fr 1.5fr;
+  min-height: 72.5vh;
+  padding: 0 10% 1%;
+  grid-column-gap: 1vw;
+  background-color: var.$light-gray;
+  align-items: flex-start;
+  .portion {
+    padding: 2.5%;
+    box-shadow: var.$shadow-3;
+    border-radius: 5px;
+    background-color: white;
+  }
+  section {
+    &.carousel {
+      overflow: hidden;
+      swiper-container {
+        swiper-slide {
+          @include var.flex-container(row, center, center);
+          img {
+            border-radius: 5px;
+          }
+          min-height: 45vh;
+        }
+      }
+    }
+    &.info {
+      @include var.flex-container(column, unset, flex-start);
+      position: relative;
+      div.discount {
+        @include var.flex-container(column, center, center);
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100px;
+        height: 50px;
+        background-color: var.$discount-red;
+        padding: 1%;
+        border-radius: 0 5px 0 5px;
+        span {
+          color: white;
+          font-size: 1.5rem;
+          font-weight: 600;
+        }
+      }
+      section {
+        width: 100%;
+        &.mainInfo {
+          @include var.flex-container(column, flex-start, flex-start);
+          span.category {
+            @include var.flex-container(row, flex-start, center);
+            background-color: var.$primary-orange-light;
+            color: var.$text-light;
+            padding: 1% 2.5%;
+            border-radius: 5px;
+            box-shadow: var.$shadow-1;
+            font-size: 1.25rem;
+            margin-bottom: 1%;
+          }
+          span.name {
+            font-size: 2rem;
+            font-weight: 600;
+          }
+          span.provider {
+            font-size: 1.5rem;
+          }
+          span.description {
+            color: var.$secondary-gray;
+          }
+        }
+        &.prices {
+          @include var.flex-container(row, flex-start, center);
+          padding: 2.5% 0;
+          span.price {
+            margin-right: 2.5%;
+            background-color: var.$discount-red;
+            font-weight: 600;
+            color: white;
+            padding: 1%;
+            font-size: 1.75rem;
+            border-radius: 5px;
+            box-shadow: var.$shadow-1;
+          }
+          span.oldPrice {
+            color: var.$primary-black;
+            text-decoration: line-through;
+            font-size: 1.5rem;
+            margin-right: 1%;
+            font-weight: 600;
+          }
+          span.salesUnit {
+            @include var.flex-container(column, flex-start, flex-start);
+            color: var.$secondary-gray;
+            font-size: 1.25rem;
+          }
+        }
+        &.extraInfo {
+          @include var.flex-container(column, flex-start, flex-start);
+          div {
+            width: 100%;
+            span {
+              &.title {
+                font-size: 1.25rem;
+                &::before {
+                  content: "•";
+                  margin-right: 0.5rem;
+                }
+                margin-right: 0.5rem;
+              }
+              &.data {
+                font-size: 1.5rem;
+                color: var.$primary-orange;
+              }
+            }
+          }
+        }
+        &.actions {
+          @include var.flex-container(row, flex-start, flex-start);
+          padding-top: 2.5%;
+          div {
+            @include var.flex-container(column, center, center);
+            height: 110px;
+            width: 110px;
+            margin-right: 2.5%;
+            background-color: var.$primary-black;
+            border-radius: 5px;
+            box-shadow: var.$shadow-1;
+            svg {
+              margin-bottom: 5%;
+              height: 40%;
+              width: 40%;
+              path {
+                fill: var.$text-light;
+              }
+            }
+            span {
+              @include var.flex-container(column, center, center);
+              height: 30%;
+              color: var.$text-light;
+              text-align: center;
+            }
+            transition: 0.3s ease all;
+            &:hover {
+              cursor: pointer;
+              transition: 0.3s ease all;
+              opacity: 0.9;
+            }
+          }
+        }
+      }
+    }
+  }
+  .div1 {
+    grid-area: 1 / 1 / 5 / 2;
+  }
+  .div2 {
+    grid-area: 1 / 2 / 5 / 4;
+  }
+}

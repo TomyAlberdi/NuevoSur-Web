@@ -1,0 +1,74 @@
+@use "var";
+
+section.Contact {
+  padding: 2.5%;
+  div.contactHeader {
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 500;
+    }
+    margin-bottom: 1.5%
+  }
+  div.contactBody {
+    @include var.flex-container(row, flex-start, center);
+    article {
+      margin-right: 2.5%;
+      @include var.flex-container(row, flex-start, center);
+      border-radius: 5px;
+      background-color: var.$primary-orange-light;
+      color: var.$text-light;
+      box-shadow: var.$shadow-1;
+      font-size: 1.5vw;
+      gap: 5%;
+      transition: 0.3s all ease-in-out;
+      padding: 1vw;
+      height: 5vw;
+      min-width: 15vw;
+      &:hover {
+        cursor: pointer;
+        transition: 0.3s all ease-in-out;
+        opacity: 0.9;
+        transform: scale(1.05);
+      }
+      div {
+        @include var.flex-container(row, center, center);
+        background-color: var.$light-gray;
+        padding: 1vw;
+        font-size: 1.5vw;
+        border-radius: 100px;
+      }
+    }
+  }
+  div.infoBody {
+    @include var.flex-container(column, flex-start, flex-start);
+    margin-top: 1.5%;
+    h2 {
+      font-size: 2.5rem;
+      font-weight: 500;
+      margin-bottom: 1%;
+    }
+    article {
+      @include var.flex-container(column, flex-start, center);
+      border-radius: 5px;
+      margin-bottom: 1%;
+      width: 100%;    
+      background-color: var.$primary-black;
+      border: 1px solid var.$primary-black;
+      padding-bottom: 0.5vw;
+      div {
+        padding: 1% 2%;
+        width: 100%;
+        border-radius: inherit;
+        &.header {
+          color: var.$text-light;
+          font-size: 1.25rem;
+        }
+        &.body {
+          background-color: var.$light-gray;
+          width: 99%;
+          line-height: 1.5rem;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,21 @@
+@use "var";
+
+.TopProducts {
+  width: 80%;
+  @include var.flex-container(column, center, center);
+  padding: 0 1.5% 1.5% 1.5%;
+  h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5%;
+  }
+  section.productList {
+    width: 100%;
+    @include var.flex-container(row, center, center);
+    flex-wrap: wrap;
+    height: unset;
+    column-gap: 1.5%;
+    article {
+      margin-bottom: 1.5%;
+    }
+  }
+}

@@ -1,0 +1,7 @@
+@use "var";
+
+div.productList {
+  @include var.flex-container(row, space-between, flex-start);
+  padding: 1.5% 5%;
+  min-height: 82vh;
+}
