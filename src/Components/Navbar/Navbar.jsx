@@ -1,12 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import data from "@/Utils/catNavbar.json";
 import BotNavbarItem from "@/Components/Navbar/components/BotNavbarItem";
 import { useNavigate } from "react-router-dom";
+import { useKindeAuth } from "@kinde-oss/kinde-auth-react";
+import { FaUserAlt } from "react-icons/fa";
 
 const Navbar = () => {
-
   const navigate = useNavigate();
+
+  const { user, isAuthenticated, login, register, logout } = useKindeAuth();
 
   const handleSearch = (e) => {
     e.preventDefault();
@@ -57,13 +60,33 @@ const Navbar = () => {
             </svg>
           </button>
         </form>
+        <section className="userOptions">
+          {isAuthenticated ? (
+            <>
+              <div className="userInfo">
+                <span>
+                  <FaUserAlt />
+                </span>
+                {user.given_name}
+              </div>
+              <article className="logout" onClick={logout}>Cerrar Sesión</article>
+            </>
+          ) : (
+            <>
+              <article className="register" onClick={register}>
+                Registrarse
+              </article>
+              <article className="login" onClick={login}>
+                Acceder
+              </article>
+            </>
+          )}
+        </section>
       </div>
       <div className="botNavbar">
-        {
-          data.map((item, index) => (
-            <BotNavbarItem data={item} key={index} />
-          ))
-        }
+        {data.map((item, index) => (
+          <BotNavbarItem data={item} key={index} />
+        ))}
       </div>
     </div>
   );
