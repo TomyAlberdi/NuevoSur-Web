@@ -16,6 +16,7 @@ function App() {
       domain="https://nuevosursa-dev.us.kinde.com"
       redirectUri="http://localhost:5173"
       logoutUri="http://localhost:5173"
+      audience="ns-backend-api"
     >
       <div className="App">
         <ProductContextComponent>
