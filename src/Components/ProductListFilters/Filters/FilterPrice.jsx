@@ -61,9 +61,10 @@ const FilterPrice = () => {
             onAfterChange={(value) => {
               handlePriceRangeChange(value);
             }}
-            renderThumb={(props, state) => (
-              <div {...props}>{state.valueNow}</div>
-            )}
+            renderThumb={(props, state) => {
+              const { key, ...restProps } = props;
+              return <div key={key} {...restProps}>{state.valueNow}</div>;
+            }}
             pearling
           />
         ) : null}
