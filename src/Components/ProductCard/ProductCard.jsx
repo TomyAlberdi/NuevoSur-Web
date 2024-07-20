@@ -21,7 +21,7 @@ const ProductCard = ({ data }) => {
       }
       <section
         className="div1 image"
-        style={{ backgroundImage: `url(${data.images[0]})` }}
+        style={{ backgroundImage: `url(${data.image})` }}
       ></section>
       <section className="div2 price">
         {data.discountPercentage ? (

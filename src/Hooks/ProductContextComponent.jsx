@@ -9,24 +9,92 @@ const ProductContextComponent = ({ children }) => {
   // PRODUCTS & PAGINFO //////////////////////////////////////////////////////////////////
   const [Data, setData] = useState([]);
 
-  const [PagInfo, setPagInfo] = useState([])
+  const [PagInfo, setPagInfo] = useState([]);
+
+  useEffect(() => {
+    mapProviders();
+    mapMeasures();
+    mapCategories();
+    getMinMaxPrice();
+  }, [Data]);
+
+  useEffect(() => {
+    let getProductsUrl = `${BASE_URL}/product/list?size=9&page=0`;
+    fetch(getProductsUrl)
+      .then((res) => res.json())
+      .then((data) => {
+        const { content, ...info } = data;
+        setData(data.content);
+        setFilteredData(content);
+        setPagInfo(info);
+      })
+      .catch((err) => console.error(err));
+  }, []);
+
+  const paginationRight = () => {
+    if (PagInfo.number === PagInfo.totalPages - 1) return;
+    let getProductsUrl = `${BASE_URL}/product/list?size=9&page=${
+      PagInfo.number + 1
+    }`;
+    fetch(getProductsUrl)
+      .then((res) => res.json())
+      .then((data) => {
+        const { content, ...info } = data;
+        setData(data.content);
+        setFilteredData(content);
+        setPagInfo(info);
+      })
+      .catch((err) => console.error(err));
+  };
+
+  const paginationLeft = () => {
+    if (PagInfo.number === 0) return;
+    let getProductsUrl = `${BASE_URL}/product/list?size=9&page=${
+      PagInfo.number - 1
+    }`;
+    fetch(getProductsUrl)
+      .then((res) => res.json())
+      .then((data) => {
+        const { content, ...info } = data;
+        setData(data.content);
+        setFilteredData(content);
+        setPagInfo(info);
+      })
+      .catch((err) => console.error(err));
+  };
+
+  const paginationNumbered = (num) => {
+    if (num > PagInfo.totalPages || num < 0) return;
+    let getProductsUrl = `${BASE_URL}/product/list?size=9&page=${num}`;
+    fetch(getProductsUrl)
+      .then((res) => res.json())
+      .then((data) => {
+        const { content, ...info } = data;
+        setData(data.content);
+        setFilteredData(content);
+        setPagInfo(info);
+      })
+      .catch((err) => console.error(err));
+  };
 
   // CATEGORIES //////////////////////////////////////////////////////////////////
   const [CategoryList, setCategoryList] = useState([]);
 
   const mapCategories = () => {
-    const categoryCount = {};
-    Data?.forEach(({ category }) => {
-      categoryCount[category] = (categoryCount[category] || 0) + 1;
-    });
-
-    const result = Object.keys(categoryCount).map((category, index) => ({
-      id: index,
-      Category: category,
-      Quantity: categoryCount[category],
-      Checked: false,
-    }));
-    setCategoryList(result);
+    const url = `${BASE_URL}/category/list`;
+    fetch(url)
+      .then((res) => res.json())
+      .then((data) => {
+        setCategoryList(
+          data.map((category, index) => ({
+            id: index,
+            Category: category.name,
+            Quantity: category.products,
+            Checked: false,
+          }))
+        );
+      })
+      .catch((err) => console.error(err));
   };
 
   const handleCategoryCheckboxChange = (id) => {
@@ -54,18 +122,20 @@ const ProductContextComponent = ({ children }) => {
   const [ProviderList, setProviderList] = useState([]);
 
   const mapProviders = () => {
-    const providerCount = {};
-    Data?.forEach(({ provider }) => {
-      providerCount[provider] = (providerCount[provider] || 0) + 1;
-    });
-
-    const result = Object.keys(providerCount).map((provider, index) => ({
-      id: index,
-      Provider: provider,
-      Quantity: providerCount[provider],
-      Checked: false,
-    }));
-    setProviderList(result);
+    const url = `${BASE_URL}/provider/list`;
+    fetch(url)
+      .then((res) => res.json())
+      .then((data) => {
+        setProviderList(
+          data.map((provider, index) => ({
+            id: index,
+            Provider: provider.name,
+            Quantity: provider.products,
+            Checked: false,
+          }))
+        );
+      })
+      .catch((err) => console.error(err));
   };
 
   const handleProviderCheckboxChange = (id) => {
@@ -93,19 +163,20 @@ const ProductContextComponent = ({ children }) => {
   const [MeasureList, setMeasureList] = useState([]);
 
   const mapMeasures = () => {
-    const measureCount = {};
-    Data?.forEach(({ measures }) => {
-      measureCount[measures] = (measureCount[measures] || 0) + 1;
-    });
-
-    const result = Object.keys(measureCount).map((measures, index) => ({
-      id: index,
-      Measures: measures,
-      Quantity: measureCount[measures],
-      Checked: false,
-    }));
-
-    setMeasureList(result);
+    const url = `${BASE_URL}/product/measures`;
+    fetch(url)
+      .then((res) => res.json())
+      .then((data) => {
+        setMeasureList(
+          data.map((measure, index) => ({
+            id: index,
+            Measures: measure.measure,
+            Quantity: measure.products,
+            Checked: false,
+          }))
+        );
+      })
+      .catch((err) => console.error(err));
   };
 
   const handleMeasureCheckboxChange = (id) => {
@@ -135,15 +206,14 @@ const ProductContextComponent = ({ children }) => {
   const [MaxPrice, setMaxPrice] = useState(0);
 
   const getMinMaxPrice = () => {
-    const minPriceLocal = Data?.reduce((min, product) => {
-      return Math.min(min, product.price);
-    }, Infinity);
-    const maxPriceLocal = Data?.reduce((max, product) => {
-      return Math.max(max, product.price);
-    }, -Infinity);
-
-    setMinPrice(minPriceLocal);
-    setMaxPrice(maxPriceLocal);
+    const url = `${BASE_URL}/product/prices`;
+    fetch(url)
+      .then((res) => res.json())
+      .then((data) => {
+        setMinPrice(data.minPrice);
+        setMaxPrice(data.maxPrice);
+      })
+      .catch((err) => console.error(err));
   };
 
   const handlePriceRangeChange = (range) => {
@@ -240,31 +310,15 @@ const ProductContextComponent = ({ children }) => {
     return filteredData;
   };
 
-  useEffect(() => {
-    mapProviders();
-    mapMeasures();
-    mapCategories();
-    getMinMaxPrice();
-  }, [Data]);
-
-  useEffect(() => {
-    let getProductsUrl = `${BASE_URL}/product/list?size=9`;
-    fetch(getProductsUrl)
-      .then((res) => res.json())
-      .then((data) => {
-        const { content, ...info } = data;
-        setData(data.content);
-        setFilteredData(content);
-        setPagInfo(info);
-      })
-      .catch((err) => console.error(err));
-  }, [])
-
   const data = {
     Data,
     FilteredData,
     resetData,
     BASE_URL,
+    PagInfo,
+    paginationRight,
+    paginationLeft,
+    paginationNumbered,
     // Providers
     ProviderList,
     handleProviderCheckboxChange,

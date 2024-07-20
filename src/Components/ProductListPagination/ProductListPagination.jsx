@@ -3,21 +3,7 @@ import { ProductContext } from "@/Hooks/ProductContextComponent";
 import ProductCard from "@/Components/ProductCard/ProductCard";
 
 const ProductListPagination = () => {
-  const { FilteredData } = useContext(ProductContext);
-
-  const itemsPerPage = 9;
-  const [CurrentPage, setCurrentPage] = useState(1);
-  const indexOfLastCard = CurrentPage * itemsPerPage;
-  const indexOfFirstCard = indexOfLastCard - itemsPerPage;
-  const [CurrentCards, setCurrentCards] = useState([]);
-  const pageNumbers = Array.from(
-    { length: Math.ceil((FilteredData?.length || 0) / itemsPerPage) },
-    (_, i) => i + 1
-  );
-
-  useEffect(() => {
-    setCurrentCards(FilteredData?.slice(indexOfFirstCard, indexOfLastCard));
-  }, [FilteredData, CurrentPage, indexOfFirstCard, indexOfLastCard]);
+  const { FilteredData, PagInfo, paginationRight, paginationLeft, paginationNumbered } = useContext(ProductContext);
 
   const scrollUp = () => {
     window.scrollTo({
@@ -27,36 +13,32 @@ const ProductListPagination = () => {
   };
 
   const handleClick = (e) => {
-    setCurrentPage(Number(e.target.id));
+    paginationNumbered(Number(e.target.id));
     scrollUp();
   };
 
-  const handleClickNext = () => {
-    if (CurrentPage < pageNumbers.length) {
-      setCurrentPage(CurrentPage + 1);
-      scrollUp();
-    }
-  };
-
   const handleClickPrev = () => {
-    if (CurrentPage > 1) {
-      setCurrentPage(CurrentPage - 1);
-      scrollUp();
-    }
-  };
+    paginationLeft();
+    scrollUp();
+  }
 
-  const renderPageNumbers = pageNumbers.map((pageNumber) => {
+  const handleClickNext = () => {
+    paginationRight();
+    scrollUp();
+  }
+
+  const renderPageNumbers = PagInfo.totalPages > 0 ? Array.from({length: PagInfo.totalPages}).map((_, index) => {
     return (
       <li
-        key={pageNumber}
-        id={pageNumber}
-        className={pageNumber === CurrentPage ? "active" : ""}
+        key={index}
+        id={index}
+        className={index === PagInfo.number ? "active" : ""}
         onClick={handleClick}
       >
-        {pageNumber < 10 ? [0, pageNumber] : { pageNumber }}
+        {index < 10 ? [0, index+1] : { index }}
       </li>
     );
-  });
+  }) : null;
 
   return (
     <section className="ProductListPagination">
@@ -65,7 +47,7 @@ const ProductListPagination = () => {
       ) : (
         <>
           <div className="cardContainer">
-            {CurrentCards?.map((data, index) => (
+            {FilteredData?.map((data, index) => (
               <ProductCard key={index} data={data} />
             ))}
           </div>
