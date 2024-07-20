@@ -10,7 +10,7 @@ div.Navbar {
   div.topNavbar {
     //max-height: 100px;
     width: 100%;
-    padding: 0 15%;
+    padding: 0 10%;
     height: 12.5vh;
     @include var.flex-container(row, space-between, center);
     section.presentation {
@@ -64,6 +64,54 @@ div.Navbar {
           cursor: pointer;
           transition: 0.3s all ease-in-out;
           opacity: 0.8;
+        }
+      }
+    }
+    section.userOptions {
+      @include var.flex-container(row, center, center);
+      gap: 2.5%;
+      article {
+        @include var.flex-container(row, center, center);
+        padding: 5% 10%;
+        min-width: 7.5vw;
+        background-color: var.$primary-black;
+        border-radius: 5px;
+        height: 6.25vh;
+        box-shadow: var.$shadow-1;
+        color: var.$text-light;
+        transition: 0.3s all ease-in-out;
+        &:hover {
+          cursor: pointer;
+          transition: 0.3s all ease-in-out;
+          opacity: 0.9;
+        }
+        &.logout {
+          padding: 1vh;
+        }
+      }
+      div.userInfo {
+        @include var.flex-container(row, flex-start, center);
+        padding: 1vh;
+        height: 6.25vh;
+        min-width: 7.5vw;
+        max-width: 10vw;
+        background-color: var.$primary-black;
+        box-shadow: var.$shadow-1;
+        color: var.$text-light;
+        border-radius: 5px;
+        span {
+          @include var.flex-container(row, center, center);
+          border-radius: 50px;
+          background-color: white;
+          width: 2vw;
+          height: 2vw;
+          margin-right: 10px;
+        }
+        transition: 0.3s all ease-in-out;
+        &:hover {
+          cursor: pointer;
+          transition: 0.3s all ease-in-out;
+          opacity: 0.9;
         }
       }
     }

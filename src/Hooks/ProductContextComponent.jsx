@@ -4,7 +4,12 @@ import importData from "@/Utils/productList.json";
 export const ProductContext = createContext();
 
 const ProductContextComponent = ({ children }) => {
+  const BASE_URL = "http://localhost:8080";
+
+  // PRODUCTS & PAGINFO //////////////////////////////////////////////////////////////////
   const [Data, setData] = useState([]);
+
+  const [PagInfo, setPagInfo] = useState([])
 
   // CATEGORIES //////////////////////////////////////////////////////////////////
   const [CategoryList, setCategoryList] = useState([]);
@@ -203,7 +208,7 @@ const ProductContextComponent = ({ children }) => {
       }
       if (filter.type === "discount") {
         filteredData = filteredData.filter(
-          (product) => product.discount !== false
+          (product) => product.discountNewPrice !== null
         );
       }
     });
@@ -216,7 +221,7 @@ const ProductContextComponent = ({ children }) => {
   const handleSearch = (query) => {
     let filteredData = [];
     if (query.length > 0) {
-      filteredData = Data.filter((item) => {
+      filteredData = Data?.filter((item) => {
         return (
           item.name.toLowerCase().includes(query.toLowerCase()) ||
           item.description.toLowerCase().includes(query.toLowerCase()) ||
@@ -225,7 +230,10 @@ const ProductContextComponent = ({ children }) => {
           item.measures.toLowerCase().includes(query.toLowerCase()) ||
           item.price.toString().includes(query.toString()) ||
           item.discount?.newPrice?.toString().includes(query.toString()) ||
-          (item.tags && item.tags.some(tag => tag.toLowerCase().includes(query.toLowerCase())))
+          (item.tags &&
+            item.tags.some((tag) =>
+              tag.toLowerCase().includes(query.toLowerCase())
+            ))
         );
       });
     }
@@ -240,14 +248,23 @@ const ProductContextComponent = ({ children }) => {
   }, [Data]);
 
   useEffect(() => {
-    setData(importData);
-    setFilteredData(importData);
-  }, []);
+    let getProductsUrl = `${BASE_URL}/product/list?size=9`;
+    fetch(getProductsUrl)
+      .then((res) => res.json())
+      .then((data) => {
+        const { content, ...info } = data;
+        setData(data.content);
+        setFilteredData(content);
+        setPagInfo(info);
+      })
+      .catch((err) => console.error(err));
+  }, [])
 
   const data = {
     Data,
     FilteredData,
     resetData,
+    BASE_URL,
     // Providers
     ProviderList,
     handleProviderCheckboxChange,

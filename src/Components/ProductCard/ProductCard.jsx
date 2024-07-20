@@ -9,11 +9,11 @@ const ProductCard = ({ data }) => {
   return (
     <article className="ProductCard" onClick={() => navigate(`/product/${data.id}`)}>
       {
-        data.discount && (
+        data.discountPercentage && (
           <section className="discountFlag">
             -
             {
-              data.discount?.percentage
+              data.discountPercentage
             }
             %
           </section>
@@ -24,7 +24,7 @@ const ProductCard = ({ data }) => {
         style={{ backgroundImage: `url(${data.images[0]})` }}
       ></section>
       <section className="div2 price">
-        {data.discount ? (
+        {data.discountPercentage ? (
           <>
             <span className="oldPrice">
               {new Intl.NumberFormat("es-AR", {
@@ -36,7 +36,7 @@ const ProductCard = ({ data }) => {
               {new Intl.NumberFormat("es-AR", {
                 style: "currency",
                 currency: "ARS",
-              }).format(data.discount.newPrice)}{" "}
+              }).format(data.discountNewPrice)}{" "}
               X {data.priceUnit}
             </span>
           </>

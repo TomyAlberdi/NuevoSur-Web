@@ -20,6 +20,7 @@ const FilterDiscount = () => {
           className="checkbox"
           name="DiscountFilter"
           checked={Checked}
+          onChange={handleCheck}
         />
       </div>
     </section>
