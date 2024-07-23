@@ -12,9 +12,9 @@ const ProductContextComponent = ({ children }) => {
   const [PagInfo, setPagInfo] = useState([]);
 
   useEffect(() => {
-    mapProviders();
-    mapMeasures();
-    mapCategories();
+    getProviders();
+    getMeasures();
+    getCategories();
     getMinMaxPrice();
   }, [Data]);
 
@@ -80,7 +80,7 @@ const ProductContextComponent = ({ children }) => {
   // CATEGORIES //////////////////////////////////////////////////////////////////
   const [CategoryList, setCategoryList] = useState([]);
 
-  const mapCategories = () => {
+  const getCategories = () => {
     const url = `${BASE_URL}/category/list`;
     fetch(url)
       .then((res) => res.json())
@@ -88,6 +88,7 @@ const ProductContextComponent = ({ children }) => {
         setCategoryList(
           data.map((category, index) => ({
             id: index,
+            categoryId: category.id,
             Category: category.name,
             Quantity: category.products,
             Checked: false,
@@ -99,14 +100,14 @@ const ProductContextComponent = ({ children }) => {
 
   const handleCategoryCheckboxChange = (id) => {
     let newAppliedFilters = AppliedFilters.filter(
-      (filter) => filter.type !== "category"
+      (filter) => filter.type !== "categoryId"
     );
 
     const updatedItems = CategoryList.map((item) => {
       if (item.id === id) {
         const newChecked = !item.Checked;
         if (newChecked) {
-          newAppliedFilters.push({ type: "category", value: item.Category });
+          newAppliedFilters.push({ type: "categoryId", value: item.categoryId });
         }
         return { ...item, Checked: newChecked };
       }
@@ -115,13 +116,12 @@ const ProductContextComponent = ({ children }) => {
 
     setAppliedFilters(newAppliedFilters);
     setCategoryList(updatedItems);
-    filterData(newAppliedFilters);
   };
 
   // PROVIDERS //////////////////////////////////////////////////////////////////
   const [ProviderList, setProviderList] = useState([]);
 
-  const mapProviders = () => {
+  const getProviders = () => {
     const url = `${BASE_URL}/provider/list`;
     fetch(url)
       .then((res) => res.json())
@@ -129,6 +129,7 @@ const ProductContextComponent = ({ children }) => {
         setProviderList(
           data.map((provider, index) => ({
             id: index,
+            providerId: provider.id,
             Provider: provider.name,
             Quantity: provider.products,
             Checked: false,
@@ -140,14 +141,14 @@ const ProductContextComponent = ({ children }) => {
 
   const handleProviderCheckboxChange = (id) => {
     let newAppliedFilters = AppliedFilters.filter(
-      (filter) => filter.type !== "provider"
+      (filter) => filter.type !== "providerId"
     );
 
     const updatedItems = ProviderList.map((item) => {
       if (item.id === id) {
         const newChecked = !item.Checked;
         if (newChecked) {
-          newAppliedFilters.push({ type: "provider", value: item.Provider });
+          newAppliedFilters.push({ type: "providerId", value: item.providerId });
         }
         return { ...item, Checked: newChecked };
       }
@@ -156,13 +157,12 @@ const ProductContextComponent = ({ children }) => {
 
     setAppliedFilters(newAppliedFilters);
     setProviderList(updatedItems);
-    filterData(newAppliedFilters);
   };
 
   // MEASURES //////////////////////////////////////////////////////////////////
   const [MeasureList, setMeasureList] = useState([]);
 
-  const mapMeasures = () => {
+  const getMeasures = () => {
     const url = `${BASE_URL}/product/measures`;
     fetch(url)
       .then((res) => res.json())
@@ -181,14 +181,14 @@ const ProductContextComponent = ({ children }) => {
 
   const handleMeasureCheckboxChange = (id) => {
     let newAppliedFilters = AppliedFilters.filter(
-      (filter) => filter.type !== "measures"
+      (filter) => filter.type !== "measure"
     );
 
     const updatedItems = MeasureList.map((item) => {
       if (item.id === id) {
         const newChecked = !item.Checked;
         if (newChecked) {
-          newAppliedFilters.push({ type: "measures", value: item.Measures });
+          newAppliedFilters.push({ type: "measure", value: item.Measures });
         }
         return { ...item, Checked: newChecked };
       }
@@ -197,7 +197,6 @@ const ProductContextComponent = ({ children }) => {
 
     setAppliedFilters(newAppliedFilters);
     setMeasureList(updatedItems);
-    filterData(newAppliedFilters);
   };
 
   // PRICE //////////////////////////////////////////////////////////////////////
@@ -218,13 +217,13 @@ const ProductContextComponent = ({ children }) => {
 
   const handlePriceRangeChange = (range) => {
     let newAppliedFilters = AppliedFilters.filter(
-      (filter) => filter.type !== "price"
+      (filter) => filter.type !== "minPrice" && filter.type !== "maxPrice"
     );
 
-    newAppliedFilters.push({ type: "price", value: range });
+    newAppliedFilters.push({ type: "minPrice", value: range[0] });
+    newAppliedFilters.push({ type: "maxPrice", value: range[1] });
 
     setAppliedFilters(newAppliedFilters);
-    filterData(newAppliedFilters);
   };
 
   // DISCOUNT ///////////////////////////////////////////////////////////////////
@@ -239,7 +238,6 @@ const ProductContextComponent = ({ children }) => {
     }
 
     setAppliedFilters(newAppliedFilters);
-    filterData(newAppliedFilters);
   };
 
   // FILTER LOGIC ///////////////////////////////////////////////////////////////
@@ -252,39 +250,26 @@ const ProductContextComponent = ({ children }) => {
   };
 
   const filterData = (appliedFilters) => {
-    let filteredData = Data;
+    let filterURL = `${BASE_URL}/product/filterList?size=9&page=0`;
 
     appliedFilters.forEach((filter) => {
-      if (filter.type === "category") {
-        filteredData = filteredData.filter(
-          (product) => product.category === filter.value
-        );
-      }
-      if (filter.type === "provider") {
-        filteredData = filteredData.filter(
-          (product) => product.provider === filter.value
-        );
-      }
-      if (filter.type === "measures") {
-        filteredData = filteredData.filter(
-          (product) => product.measures === filter.value
-        );
-      }
-      if (filter.type === "price") {
-        filteredData = filteredData.filter(
-          (product) =>
-            product.price >= filter.value[0] && product.price <= filter.value[1]
-        );
-      }
-      if (filter.type === "discount") {
-        filteredData = filteredData.filter(
-          (product) => product.discountNewPrice !== null
-        );
-      }
+      filterURL = `${filterURL}&${filter.type}=${filter.value}`;
     });
-
-    setFilteredData(filteredData);
+    console.log(filterURL);
+    return filterURL;
   };
+
+  useEffect(() => {
+    let filterURL = filterData(AppliedFilters);
+    fetch(filterURL)
+      .then((res) => res.json())
+      .then((data) => {
+        const { content, ...info } = data;
+        setFilteredData(content);
+        setPagInfo(info);
+      })
+      .catch((err) => console.error(err));
+  }, [AppliedFilters]);
 
   // SEARCH LOGIC //////////////////////////////////////////////////////////////
 
