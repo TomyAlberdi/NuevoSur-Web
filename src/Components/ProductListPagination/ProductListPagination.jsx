@@ -3,7 +3,7 @@ import { ProductContext } from "@/Hooks/ProductContextComponent";
 import ProductCard from "@/Components/ProductCard/ProductCard";
 
 const ProductListPagination = () => {
-  const { FilteredData, PagInfo, paginationRight, paginationLeft, paginationNumbered } = useContext(ProductContext);
+  const { Data, PagInfo, paginationRight, paginationLeft, paginationNumbered } = useContext(ProductContext);
 
   const scrollUp = () => {
     window.scrollTo({
@@ -42,12 +42,12 @@ const ProductListPagination = () => {
 
   return (
     <section className="ProductListPagination">
-      {FilteredData.length === 0 ? (
+      {Data.length === 0 ? (
         <h2 className="defaultMessage">No hay productos disponibles</h2>
       ) : (
         <>
           <div className="cardContainer">
-            {FilteredData?.map((data, index) => (
+            {Data?.map((data, index) => (
               <ProductCard key={index} data={data} />
             ))}
           </div>
@@ -73,7 +73,7 @@ const ProductListPagination = () => {
                 strokeLinejoin="round"
               />
             </svg>
-            {FilteredData ? renderPageNumbers : null}
+            {Data ? renderPageNumbers : null}
             <svg
               onClick={handleClickNext}
               viewBox="0 0 18 16"

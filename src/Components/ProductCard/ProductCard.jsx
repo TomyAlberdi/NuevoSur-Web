@@ -21,7 +21,9 @@ const ProductCard = ({ data }) => {
       }
       <section
         className="div1 image"
-        style={{ backgroundImage: `url(${data.image})` }}
+        style={
+          Array.isArray(data.image) ? { backgroundImage: `url(${data.image[0]})` } : { backgroundImage: `url(${data.image})` }
+        }
       ></section>
       <section className="div2 price">
         {data.discountPercentage ? (

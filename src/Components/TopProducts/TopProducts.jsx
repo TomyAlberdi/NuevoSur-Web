@@ -14,7 +14,7 @@ const TopProducts = () => {
         setData(data.content);
       })
       .catch((err) => console.error(err));
-  })
+  }, []);
 
   return (
     <div className="TopProducts">

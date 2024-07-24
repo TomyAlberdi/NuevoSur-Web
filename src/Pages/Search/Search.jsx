@@ -5,14 +5,23 @@ import ProductCard from "@/Components/ProductCard/ProductCard";
 import { RxCross1 } from "react-icons/rx";
 
 const Search = () => {
-  const [Results, setResults] = useState([]);
-
-  const { handleSearch } = useContext(ProductContext);
-
+  const [results, setResults] = useState([]);
+  const [loading, setLoading] = useState(true);
   const { query } = useParams();
+  const { BASE_URL } = useContext(ProductContext);
 
   useEffect(() => {
-    setResults(handleSearch(query));
+    const searchQuery = `${BASE_URL}/product/search?keyword=${query}`;
+    fetch(searchQuery)
+      .then((res) => res.json())
+      .then((data) => {
+        setResults(data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.error(err);
+        setLoading(false);
+      });
   }, [query]);
 
   return (
@@ -21,13 +30,16 @@ const Search = () => {
         <h2>Resultados para: {query}</h2>
       </div>
       <div className="searchResults">
-        {Results.length > 0 ? (
-          Results.map((item, index) => <ProductCard data={item} key={index} />)
+        {loading ? (
+          <div className="loading">Loading...</div>
+        ) : results.length > 0 ? (
+          results.map((item, index) => <ProductCard data={item} key={index} />)
         ) : (
           <div className="noResultPanel">
             <span>
               <RxCross1 />
-              No se encontraron resultados</span>
+              No se encontraron resultados
+            </span>
           </div>
         )}
       </div>

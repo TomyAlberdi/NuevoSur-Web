@@ -12,69 +12,26 @@ const ProductContextComponent = ({ children }) => {
   const [PagInfo, setPagInfo] = useState([]);
 
   useEffect(() => {
+    getProducts([], 0);
     getProviders();
     getMeasures();
     getCategories();
     getMinMaxPrice();
-  }, [Data]);
-
-  useEffect(() => {
-    let getProductsUrl = `${BASE_URL}/product/list?size=9&page=0`;
-    fetch(getProductsUrl)
-      .then((res) => res.json())
-      .then((data) => {
-        const { content, ...info } = data;
-        setData(data.content);
-        setFilteredData(content);
-        setPagInfo(info);
-      })
-      .catch((err) => console.error(err));
   }, []);
 
   const paginationRight = () => {
     if (PagInfo.number === PagInfo.totalPages - 1) return;
-    let getProductsUrl = `${BASE_URL}/product/list?size=9&page=${
-      PagInfo.number + 1
-    }`;
-    fetch(getProductsUrl)
-      .then((res) => res.json())
-      .then((data) => {
-        const { content, ...info } = data;
-        setData(data.content);
-        setFilteredData(content);
-        setPagInfo(info);
-      })
-      .catch((err) => console.error(err));
+    getProducts(AppliedFilters, PagInfo.number + 1);
   };
 
   const paginationLeft = () => {
     if (PagInfo.number === 0) return;
-    let getProductsUrl = `${BASE_URL}/product/list?size=9&page=${
-      PagInfo.number - 1
-    }`;
-    fetch(getProductsUrl)
-      .then((res) => res.json())
-      .then((data) => {
-        const { content, ...info } = data;
-        setData(data.content);
-        setFilteredData(content);
-        setPagInfo(info);
-      })
-      .catch((err) => console.error(err));
+    getProducts(AppliedFilters, PagInfo.number - 1);
   };
 
   const paginationNumbered = (num) => {
     if (num > PagInfo.totalPages || num < 0) return;
-    let getProductsUrl = `${BASE_URL}/product/list?size=9&page=${num}`;
-    fetch(getProductsUrl)
-      .then((res) => res.json())
-      .then((data) => {
-        const { content, ...info } = data;
-        setData(data.content);
-        setFilteredData(content);
-        setPagInfo(info);
-      })
-      .catch((err) => console.error(err));
+    getProducts(AppliedFilters, num);
   };
 
   // CATEGORIES //////////////////////////////////////////////////////////////////
@@ -107,7 +64,10 @@ const ProductContextComponent = ({ children }) => {
       if (item.id === id) {
         const newChecked = !item.Checked;
         if (newChecked) {
-          newAppliedFilters.push({ type: "categoryId", value: item.categoryId });
+          newAppliedFilters.push({
+            type: "categoryId",
+            value: item.categoryId,
+          });
         }
         return { ...item, Checked: newChecked };
       }
@@ -148,7 +108,10 @@ const ProductContextComponent = ({ children }) => {
       if (item.id === id) {
         const newChecked = !item.Checked;
         if (newChecked) {
-          newAppliedFilters.push({ type: "providerId", value: item.providerId });
+          newAppliedFilters.push({
+            type: "providerId",
+            value: item.providerId,
+          });
         }
         return { ...item, Checked: newChecked };
       }
@@ -242,62 +205,41 @@ const ProductContextComponent = ({ children }) => {
 
   // FILTER LOGIC ///////////////////////////////////////////////////////////////
 
-  const [FilteredData, setFilteredData] = useState([]);
   const [AppliedFilters, setAppliedFilters] = useState([]);
 
   const resetData = () => {
-    setFilteredData(Data);
+    getProducts([], 0);
   };
 
-  const filterData = (appliedFilters) => {
-    let filterURL = `${BASE_URL}/product/filterList?size=9&page=0`;
+  useEffect(() => {
+    getProducts(AppliedFilters, 0);
+  }, [AppliedFilters]);
+
+  const getFilteredURL = (appliedFilters) => {
+    let filterURL = `${BASE_URL}/product/filterList?`;
 
     appliedFilters.forEach((filter) => {
       filterURL = `${filterURL}&${filter.type}=${filter.value}`;
     });
-    console.log(filterURL);
+
     return filterURL;
   };
 
-  useEffect(() => {
-    let filterURL = filterData(AppliedFilters);
+  const getProducts = (appliedFilters, page) => {
+    let filterURL = getFilteredURL(appliedFilters);
+    filterURL = `${filterURL}&page=${page}`;
     fetch(filterURL)
       .then((res) => res.json())
       .then((data) => {
         const { content, ...info } = data;
-        setFilteredData(content);
+        setData(content);
         setPagInfo(info);
       })
       .catch((err) => console.error(err));
-  }, [AppliedFilters]);
-
-  // SEARCH LOGIC //////////////////////////////////////////////////////////////
-
-  const handleSearch = (query) => {
-    let filteredData = [];
-    if (query.length > 0) {
-      filteredData = Data?.filter((item) => {
-        return (
-          item.name.toLowerCase().includes(query.toLowerCase()) ||
-          item.description.toLowerCase().includes(query.toLowerCase()) ||
-          item.category.toLowerCase().includes(query.toLowerCase()) ||
-          item.provider.toLowerCase().includes(query.toLowerCase()) ||
-          item.measures.toLowerCase().includes(query.toLowerCase()) ||
-          item.price.toString().includes(query.toString()) ||
-          item.discount?.newPrice?.toString().includes(query.toString()) ||
-          (item.tags &&
-            item.tags.some((tag) =>
-              tag.toLowerCase().includes(query.toLowerCase())
-            ))
-        );
-      });
-    }
-    return filteredData;
-  };
+  }
 
   const data = {
     Data,
-    FilteredData,
     resetData,
     BASE_URL,
     PagInfo,
@@ -319,8 +261,6 @@ const ProductContextComponent = ({ children }) => {
     handlePriceRangeChange,
     // Discount
     handleDiscountCheckboxChange,
-    // Search
-    handleSearch,
   };
 
   return (
