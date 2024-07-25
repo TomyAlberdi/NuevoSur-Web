@@ -38,6 +38,7 @@ article.ProductCard {
       @include var.flex-container(row, center, center);
       flex-wrap: wrap;
       span {
+        display: initial;
         font-size: 1.5rem;
         color: var.$discount-red;
         font-weight: 600;
@@ -55,10 +56,12 @@ article.ProductCard {
     &.name {
       span {
         font-size: 1.2rem;
+        display: initial;
       }
     }
     &.unit {
       span {
+        display: initial;
         font-size: 0.9rem;
         color: var.$secondary-gray;
       }

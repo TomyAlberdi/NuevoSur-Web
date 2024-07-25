@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import data from "@/Utils/productList.json";
 import ProductCard from "@/Components/ProductCard/ProductCard";
+import Skeleton from "@mui/material/Skeleton";
 
 const TopProducts = () => {
-
-  const [Data, setData] = useState([])
+  const [Data, setData] = useState([]);
+  const [Loading, setLoading] = useState(true);
 
   useEffect(() => {
     let getProductsUrl = `http://localhost:8080/product/list?size=8`;
@@ -12,17 +13,32 @@ const TopProducts = () => {
       .then((res) => res.json())
       .then((data) => {
         setData(data.content);
+        setLoading(false);
       })
-      .catch((err) => console.error(err));
+      .catch((err) => {
+        console.error(err);
+        setLoading(false);
+      });
   }, []);
 
   return (
     <div className="TopProducts">
       <h2>Productos Destacados</h2>
       <section className="productList">
-        {Data?.map((product, index) => (
-          <ProductCard key={index} data={product} />
-        ))}
+        {Loading
+          ? [...Array(8)].map((index) => {
+              return (
+                <Skeleton
+                  key={index}
+                  variant="rectangular"
+                  animation="wave"
+                  className="skeletonCard"
+                />
+              );
+            })
+          : Data?.map((product, index) => (
+              <ProductCard key={index} data={product} />
+            ))}
       </section>
     </div>
   );

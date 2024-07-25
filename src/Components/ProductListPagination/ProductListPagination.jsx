@@ -1,9 +1,19 @@
 import React, { useContext, useEffect, useState } from "react";
 import { ProductContext } from "@/Hooks/ProductContextComponent";
 import ProductCard from "@/Components/ProductCard/ProductCard";
+import Skeleton from "@mui/material/Skeleton";
 
 const ProductListPagination = () => {
-  const { Data, PagInfo, paginationRight, paginationLeft, paginationNumbered } = useContext(ProductContext);
+  const { Data, PagInfo, paginationRight, paginationLeft, paginationNumbered } =
+    useContext(ProductContext);
+
+  const [Loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    if (Data.length > 0) {
+      setLoading(false);
+    }
+  }, [Data]);
 
   const scrollUp = () => {
     window.scrollTo({
@@ -20,25 +30,28 @@ const ProductListPagination = () => {
   const handleClickPrev = () => {
     paginationLeft();
     scrollUp();
-  }
+  };
 
   const handleClickNext = () => {
     paginationRight();
     scrollUp();
-  }
+  };
 
-  const renderPageNumbers = PagInfo.totalPages > 0 ? Array.from({length: PagInfo.totalPages}).map((_, index) => {
-    return (
-      <li
-        key={index}
-        id={index}
-        className={index === PagInfo.number ? "active" : ""}
-        onClick={handleClick}
-      >
-        {index < 10 ? [0, index+1] : { index }}
-      </li>
-    );
-  }) : null;
+  const renderPageNumbers =
+    PagInfo.totalPages > 0
+      ? Array.from({ length: PagInfo.totalPages }).map((_, index) => {
+          return (
+            <li
+              key={index}
+              id={index}
+              className={index === PagInfo.number ? "active" : ""}
+              onClick={handleClick}
+            >
+              {index < 10 ? [0, index + 1] : { index }}
+            </li>
+          );
+        })
+      : null;
 
   return (
     <section className="ProductListPagination">
@@ -47,9 +60,20 @@ const ProductListPagination = () => {
       ) : (
         <>
           <div className="cardContainer">
-            {Data?.map((data, index) => (
-              <ProductCard key={index} data={data} />
-            ))}
+            {Loading
+              ? [...Array(9)].map((index) => {
+                  return (
+                    <Skeleton
+                      key={index}
+                      variant="rectangular"
+                      animation="wave"
+                      className="skeletonCard"
+                    />
+                  );
+                })
+              : Data?.map((data, index) => (
+                  <ProductCard key={index} data={data} />
+                ))}
           </div>
           <ul>
             <svg

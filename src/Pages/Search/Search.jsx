@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { ProductContext } from "@/Hooks/ProductContextComponent";
 import ProductCard from "@/Components/ProductCard/ProductCard";
 import { RxCross1 } from "react-icons/rx";
+import Skeleton from "@mui/material/Skeleton";
 
 const Search = () => {
   const [results, setResults] = useState([]);
@@ -31,7 +32,11 @@ const Search = () => {
       </div>
       <div className="searchResults">
         {loading ? (
-          <div className="loading">Loading...</div>
+          [...Array(5)].map((index) => {
+            return (
+              <Skeleton key={index} variant="rectangular" animation="wave" className="skeletonCard" />
+            );
+          })
         ) : results.length > 0 ? (
           results.map((item, index) => <ProductCard data={item} key={index} />)
         ) : (

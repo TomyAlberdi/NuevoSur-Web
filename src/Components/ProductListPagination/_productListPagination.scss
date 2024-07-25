@@ -6,7 +6,7 @@ section.ProductListPagination {
     @include var.flex-container(row, center, flex-start);
     flex-wrap: wrap;
     gap: 2.5%;
-    article.ProductCard {
+    article.ProductCard, .skeletonCard {
       margin-bottom: 2.5%;
     }
   }

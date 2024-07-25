@@ -65,5 +65,11 @@ div.App {
         }
       }
     }
+    .skeletonCard {
+      width: 17.5vw;
+      height: 55vh;
+      border-radius: 5px;
+      box-shadow: var.$shadow-2;
+    }
   }
 }
