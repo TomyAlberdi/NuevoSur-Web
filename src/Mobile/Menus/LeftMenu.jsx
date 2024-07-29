@@ -11,7 +11,7 @@ const LeftMenu = () => {
         <div onClick={handleLeftMenuOpen}>
           <IoCloseCircle />
         </div>
-        Menú
+        <p className="bebas">Menú</p>
         <img src="/NuevoSurIcon.png" onClick={handleLeftMenuOpen} />
       </section>
       <section className="body">left</section>

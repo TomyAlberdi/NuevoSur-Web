@@ -9,7 +9,7 @@ const RightMenu = () => {
     <div className={"MobileMenu RightMenu" + (RightMenuOpen ? " open" : "")}>
       <section className="header">
         <img src="/NuevoSurIcon.png" onClick={handleRightMenuOpen} />
-        Usuario
+        <p className="bebas">Usuario</p>
         <div onClick={handleRightMenuOpen}>
           <IoCloseCircle />
         </div>
