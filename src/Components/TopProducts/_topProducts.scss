@@ -13,9 +13,12 @@
     @include var.flex-container(row, center, center);
     flex-wrap: wrap;
     height: unset;
-    column-gap: 1.5%;
     article, .skeletonCard {
+      margin-left: 1.5%;
       margin-bottom: 1.5%;
+      &:nth-child(1) {
+        margin-left: 0;
+      }
     }
   }
 }
