@@ -1,0 +1,68 @@
+@use "var";
+
+div.MobileNavbar {
+  display: none;
+  /* Query Mobile */
+  @media (max-width: 1024px) {
+    width: 100%;
+    @include var.flex-container(column, center, center);
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    div, form {
+      width: 100%;
+      &.topNavbar {
+        height: 8.5vh;
+        background-color: var.$light-gray;
+        @include var.flex-container(row, space-between, center);
+        section {
+          height: 100%;
+          width: 20%;
+          @include var.flex-container(row, center, center);
+          &.leftMenuButton {
+            font-size: 3rem;
+          }
+          &.rightMenuButton {
+            font-size: 2rem;
+          }
+        }
+        a {
+          img {
+            height: 100%;
+            width: 8.5vh;
+          }
+        }
+      }
+      &.botNavbar {
+        height: 6.5vh;
+        @include var.flex-container(row, center, center);
+        background-color: var.$primary-black;
+        input, button {
+          height: 100%;
+          outline: none;
+          border: none;
+        }
+        input {
+          background-color: inherit;
+          width: 100%;
+          padding: 0 5%;
+          color: white;
+          font-size: 1.25rem;
+          font-weight: 400;
+        }
+        button {
+          width: 16.5%;
+          background-color: var.$primary-orange-light;
+          @include var.flex-container(row, center, center);
+          border-radius: 5px 0 0 5px;
+          svg {
+            width: 75%;
+            path {
+              stroke: var.$light-gray;
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -13,6 +13,8 @@
 @use "@/Components/Question/question";
 @use "@/Pages/Search/search";
 @use "@/Pages/Contact/contact";
+@use "@/Mobile/MobileNavbar/MobileNavbar";
+@use "@/Mobile/Menu/Menu";
 
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 
@@ -70,6 +72,13 @@ div.App {
       height: 55vh;
       border-radius: 5px;
       box-shadow: var.$shadow-2;
+    }
+  }
+  /* Query Mobile */
+  @media (max-width: 1024px) {
+    overscroll-behavior: none;
+    div.Layout {
+      padding-top: 15vh;
     }
   }
 }
