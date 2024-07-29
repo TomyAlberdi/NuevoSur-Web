@@ -1,0 +1,52 @@
+@use "var";
+
+div.MobileMenu {
+  display: none;
+  /* Query Mobile */
+  @media (max-width: 1024px) {
+    &.LeftMenu {
+      left: -100vw;
+      &.open {
+        left: 0;
+        transition: 0.3s all ease-in-out;
+      }
+    }
+    &.RightMenu {
+      right: -100vw;
+      &.open {
+        right: 0;
+        transition: 0.3s all ease-in-out;
+      }
+    }
+    @include var.flex-container(column, flex-start, flex-start);
+    transition: 0.3s all ease-in-out;
+    position: fixed;
+    z-index: 101;
+    top: 0;
+    width: 100vw;
+    height: 100dvh;
+    background-color: var.$text-dark;
+    section.header {
+      background-color: var.$light-gray;
+      height: 8.5vh;
+      min-height: 60px;
+      width: 100%;
+      padding: 0 2.5%;
+      @include var.flex-container(row, space-between, center);
+      img {
+        min-width: 60px;
+        height: 100%;
+        width: 8.5vh;
+      }
+      div {
+        width: 8.5vh;
+        min-width: 60px;
+        height: 100%;
+        @include var.flex-container(row, center, center);
+        svg {
+          font-size: 4rem;
+        }
+      }
+    }
+  }
+}

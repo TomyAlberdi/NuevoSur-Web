@@ -13,6 +13,7 @@ div.MobileNavbar {
       width: 100%;
       &.topNavbar {
         height: 8.5vh;
+        min-height: 60px;
         background-color: var.$light-gray;
         @include var.flex-container(row, space-between, center);
         section {
@@ -28,6 +29,7 @@ div.MobileNavbar {
         }
         a {
           img {
+            min-width: 60px;
             height: 100%;
             width: 8.5vh;
           }
@@ -35,6 +37,7 @@ div.MobileNavbar {
       }
       &.botNavbar {
         height: 6.5vh;
+        min-height: 45px;
         @include var.flex-container(row, center, center);
         background-color: var.$primary-black;
         input, button {

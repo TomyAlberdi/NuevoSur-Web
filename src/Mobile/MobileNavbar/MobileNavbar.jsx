@@ -1,13 +1,24 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { IoMenu } from "react-icons/io5";
 import { FaUserAlt } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
+import { MobileMenuContext } from "@/Hooks/MobileMenuContextComponent";
 
 const MobileNavbar = () => {
+  const {
+    LeftMenuOpen,
+    RightMenuOpen,
+    handleLeftMenuOpen,
+    handleRightMenuOpen,
+  } = useContext(MobileMenuContext);
+
+  const navigate = useNavigate();
+
   const handleSearch = (e) => {
     e.preventDefault();
-    if (e.target.search_prompt.value.length > 0) {
-      navigate(`/search/${e.target.search_prompt.value}`);
+    if (e.target.search_prompt_mobile.value.length > 0) {
+      navigate(`/search/${e.target.search_prompt_mobile.value}`);
     }
     document.getElementById("search_prompt_mobile").value = "";
   };
@@ -15,17 +26,17 @@ const MobileNavbar = () => {
   return (
     <div className="MobileNavbar">
       <div className="topNavbar">
-        <section className="leftMenuButton">
+        <section className="leftMenuButton" onClick={handleLeftMenuOpen}>
           <IoMenu />
         </section>
         <Link to="/">
           <img src="/NuevoSurIcon.png" />
         </Link>
-        <section className="rightMenuButton">
+        <section className="rightMenuButton" onClick={handleRightMenuOpen}>
           <FaUserAlt />
         </section>
       </div>
-      <form className="botNavbar">
+      <form className="botNavbar" onSubmit={handleSearch}>
         <input
           type="text"
           id="search_prompt_mobile"

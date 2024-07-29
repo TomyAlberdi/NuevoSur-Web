@@ -3,6 +3,7 @@ import CustomRouter from "@/routes.jsx";
 import { useEffect } from "react";
 import { register } from "swiper/element/bundle";
 import ProductContextComponent from "@/Hooks/ProductContextComponent";
+import MobileMenuContextComponent from "@/Hooks/MobileMenuContextComponent";
 import { KindeProvider } from "@kinde-oss/kinde-auth-react";
 
 function App() {
@@ -18,11 +19,13 @@ function App() {
       logoutUri="http://localhost:5173"
       audience="ns-backend-api"
     >
-      <div className="App">
-        <ProductContextComponent>
-          <CustomRouter />
-        </ProductContextComponent>
-      </div>
+      <MobileMenuContextComponent>
+        <div className="App">
+          <ProductContextComponent>
+            <CustomRouter />
+          </ProductContextComponent>
+        </div>
+      </MobileMenuContextComponent>
     </KindeProvider>
   );
 }
