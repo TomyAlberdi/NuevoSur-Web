@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
-import data from "@/Utils/productList.json";
 import ProductCard from "@/Components/ProductCard/ProductCard";
 import Skeleton from "@mui/material/Skeleton";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const TopProducts = () => {
   const [Data, setData] = useState([]);
@@ -16,8 +17,12 @@ const TopProducts = () => {
         setLoading(false);
       })
       .catch((err) => {
-        console.error(err);
-        setLoading(false);
+        toast.error("Ocurrió un error al cargar los productos.", {
+          position: "bottom-right",
+          autoClose: 5000,
+          closeOnClick: true,
+          pauseOnHover: true,
+        });
       });
   }, []);
 
@@ -25,6 +30,7 @@ const TopProducts = () => {
     <div className="TopProducts">
       <h2>Productos Destacados</h2>
       <section className="productList">
+        <ToastContainer />
         {Loading
           ? [...Array(8)].map((index) => {
               return (
