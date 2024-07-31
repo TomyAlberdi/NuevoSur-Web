@@ -1,4 +1,87 @@
 @use "var";
 
 div.LeftMenu {
+  section.body {
+    @include var.flex-container(column, flex-start, flex-start);
+    width: 100%;
+    gap: 2.5%;
+    section {
+      width: inherit;
+      &.topMenu {
+        @include var.flex-container(row, space-around, stretch);
+        a {
+          @include var.flex-container(column, flex-start, center);
+          width: 30%;
+          text-align: center;
+          margin: 2.5% 0;
+          padding: 2.5% 0;
+          border-radius: 5px;
+          background-color: var.$primary-orange;
+          color: var.$text-light;
+          text-decoration: none;
+          box-shadow: var.$shadow-1;
+          span {
+            @include var.flex-container(row, center, center);
+            background-color: var.$text-light;
+            height: 7.5vh;
+            width: 7.5vh;
+            border-radius: 100px;
+            svg {
+              font-size: 2rem;
+            }
+            margin-bottom: 10%;
+          }
+        }
+      }
+      &.botMenu {
+        @include var.flex-container(column, flex-start, flex-start);
+        max-height: 64vh;
+        overflow-y: scroll;
+        overscroll-behavior: none;
+        article {
+          width: 100%;
+          background-color: var.$primary-black;
+          border-bottom: 1px solid var.$secondary-gray;
+          border-top: 1px solid var.$secondary-gray;
+          span {
+            @include var.flex-container(row, space-between, center);
+            width: 100%;
+            color: var.$text-light;
+            padding: 3.5%;
+            svg {
+              width: 2rem;
+              path {
+                stroke: var.$text-light;
+              }
+              transition: transform 0.5s ease-in-out;
+              &.active {
+                transform: rotateX(180deg);
+                transition: transform 0.5s ease-in-out;
+              }
+            }
+          }
+          ul.subcategories {
+            @include var.flex-container(column, flex-start, flex-start);
+            width: 100%;
+            li {
+              padding: 2.5%;
+              width: 100%;
+              background-color: var.$secondary-gray;
+              color: var.$text-light;
+              text-decoration: none;
+              padding-left: 10%;
+              border-bottom: 1px solid var.$text-dark;
+              border-top: 1px solid var.$text-dark;
+              &:last-child {
+                border-bottom: none;
+              }
+              &:first-child {
+                border-top: none;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }
