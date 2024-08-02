@@ -1,4 +1,186 @@
 @use "var";
 
 div.RightMenu {
+  section.body {
+    width: 100%;
+    section {
+      &.topMenu {
+        height: 25vh;
+        width: 100%;
+        &.noAuth {
+          @include var.flex-container(column, center, center);
+          padding: 5% 5% 0 5%;
+          div {
+            padding: 5% 0;
+            border-radius: 5px;
+            box-shadow: var.$shadow-1;
+            text-align: center;
+            color: var.$text-light;
+            width: 100%;
+            background-color: var.$primary-black;
+          }
+          span {
+            color: var.$text-light;
+            padding: 5% 0;
+          }
+        }
+        &.auth {
+          @include var.flex-container(column, center, center);
+          div {
+            &.userInfo {
+              width: 100%;
+              height: 70%;
+              @include var.flex-container(row, space-between, center);
+              padding: 0 2.5%;
+              span {
+                &.userIcon {
+                  @include var.flex-container(row, center, center);
+                  background-color: var.$primary-orange;
+                  padding: 5%;
+                  border-radius: 100px;
+                  svg {
+                    font-size: 2.5rem;
+                    path {
+                      fill: var.$text-light;
+                    }
+                  }
+                }
+                &.settingsIcon {
+                  @include var.flex-container(row, center, center);
+                  background-color: var.$primary-orange;
+                  padding: 2.5%;
+                  border-radius: 5px;
+                  svg {
+                    font-size: 2.5rem;
+                    path {
+                      fill: var.$text-light;
+                    }
+                  }
+                }
+              }
+              p {
+                color: var.$text-light;
+                font-size: 1.35rem;
+              }
+            }
+            &.closeSession {
+              height: 30%;
+              width: 95%;
+              background-color: var.$primary-black;
+              border-radius: 5px;
+              color: var.$text-light;
+              @include var.flex-container(row, center, center);
+              box-shadow: var.$shadow-1;
+            }
+          }
+        }
+      }
+      &.botMenu {
+        overflow-y: scroll;
+        max-height: 59vh;
+        overscroll-behavior: none;
+        padding: 2.5%;
+        color: var.$text-light;
+        h3 {
+          color: var.$text-light;
+          @include var.flex-container(row, space-between, center);
+          font-size: 3rem;
+          svg {
+            path {
+              fill: var.$text-light;
+            }
+          }
+        }
+        div.cart {
+          background-color: var.$primary-black;
+          border-radius: 10px;
+          position: relative;
+          min-height: 30vh;
+          @include var.flex-container(column, center, center);
+          box-shadow: var.$shadow-1;
+          div.buyButton {
+            width: 100%;
+            height: 7.5vh;
+            background-color: var.$primary-orange;
+            border-radius: 5px;
+            color: var.$text-light;
+            @include var.flex-container(row, center, center);
+            font-size: 1.35rem;
+          }
+          &.auth {
+            article.item {
+              width: 100%;
+              padding: 2.5%;
+              display: grid;
+              grid-template-columns: 1fr 0.4fr 0.6fr;
+              grid-template-rows: 1fr;
+              column-gap: 2.5%;
+              border: 1px solid var.$secondary-gray;
+              border-top: none;
+              &.guide {
+                border-top-left-radius: 10px;
+                border-top-right-radius: 10px;
+                border-top: 1px solid var.$secondary-gray;
+              }
+              &.total {
+                margin-top: auto;
+                border: none;
+              }
+              p {
+                color: var.$text-light;
+                overflow: hidden;
+                &.div1 {
+                  grid-area: 1 / 1 / 2 / 2;
+                }
+                &.div2 {
+                  grid-area: 1 / 2 / 2 / 3;
+                  text-align: center;
+                }
+                &.div3 {
+                  grid-area: 1 / 3 / 2 / 4;
+                  text-align: center;
+                }
+              }
+            }
+            p.emptyMessage {
+              margin-top: auto;
+              color: var.$secondary-gray;
+              font-weight: lighter;
+            }
+          }
+          &.noAuth {
+            p {
+              position: absolute;
+              top: 25%;
+              color: var.$text-light;
+              font-size: 1.25rem;
+              width: 35%;
+              text-align: center;
+              font-weight: lighter;
+            }
+            div.buyButton {
+              background-color: #c0c0c0;
+              color: var.$text-light;
+              margin-top: auto;
+            }
+          }
+        }
+        div.emptyButton {
+          width: 100%;
+          background-color: var.$secondary-gray;
+          @include var.flex-container(row, center, center);
+          gap: 2.5%;
+          margin-top: 2.5%;
+          border-radius: 5px;
+          padding: 3.5%;
+          span, svg {
+            color: var.$text-light;
+            path {
+              fill: var.$text-light;
+            }
+          }
+        }
+      }
+    }
+  }
 }
