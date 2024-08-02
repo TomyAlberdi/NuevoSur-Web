@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { IoMenu } from "react-icons/io5";
-import { FaUserAlt } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { MobileMenuContext } from "@/Hooks/MobileMenuContextComponent";
+import { FaUserTag } from "react-icons/fa";
 
 const MobileNavbar = () => {
   const {
@@ -33,7 +33,7 @@ const MobileNavbar = () => {
           <img src="/NuevoSurIcon.png" />
         </Link>
         <section className="rightMenuButton" onClick={handleRightMenuOpen}>
-          <FaUserAlt />
+          <FaUserTag />
         </section>
       </div>
       <form className="botNavbar" onSubmit={handleSearch}>

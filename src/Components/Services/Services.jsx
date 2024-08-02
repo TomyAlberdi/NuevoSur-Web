@@ -1,6 +1,6 @@
 import React from "react";
 import { FaPhone, FaQuestion } from "react-icons/fa";
-import { MdLocalGroceryStore } from "react-icons/md";
+import { FaBoxOpen } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 const Services = () => {
@@ -17,7 +17,7 @@ const Services = () => {
       <article>
         <Link to="/list">
           <span>
-            <MdLocalGroceryStore />
+            <FaBoxOpen />
           </span>
           Productos
         </Link>

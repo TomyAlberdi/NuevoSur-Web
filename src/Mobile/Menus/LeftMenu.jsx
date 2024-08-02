@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { MobileMenuContext } from "@/Hooks/MobileMenuContextComponent";
 import { IoCloseCircle } from "react-icons/io5";
 import { FaPhone, FaQuestion } from "react-icons/fa";
-import { MdLocalGroceryStore } from "react-icons/md";
+import { FaBoxOpen } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import data from "@/Utils/catNavbar.json";
 import MobileMenuItem from "@/Mobile/MobileMenuItem/MobileMenuItem";
@@ -29,7 +29,7 @@ const LeftMenu = () => {
           </Link>
           <Link to="/list" onClick={handleLeftMenuOpen}>
             <span>
-              <MdLocalGroceryStore />
+              <FaBoxOpen />
             </span>
             Productos
           </Link>
